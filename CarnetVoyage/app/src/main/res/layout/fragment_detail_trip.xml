@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This is "Fragment A"-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/bouton_notes_picture"
+            android:orientation="horizontal"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@layout/my_button"
+            android:textColor="@color/buttonLabel"
+            android:layout_marginEnd="17dp"
+            android:text="@string/btn_notes_photo"/>
+
+        <Button
+            android:id="@+id/bouton_notes_txt"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@layout/my_button"
+            android:textColor="@color/buttonLabel"
+            android:layout_marginEnd="17dp"
+            android:text="@string/btn_notes_texte"/>
+
+
+        <Button
+            android:id="@+id/boutonUpdate"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@layout/my_button"
+            android:textColor="@color/buttonLabel"
+            android:text="@string/btn_update" />
+    </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+       >
+            <TextView
+                android:id="@+id/fieldTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/befor_field_title"
+
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:id="@+id/tripTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+            <TextView
+                android:id="@+id/fieldCountry"
+
+                android:layout_width="wrap_content"
+                android:text="@string/befor_field_country"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        <TextView
+            android:id="@+id/tripCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+
+        >
+        <TextView
+            android:id="@+id/fieldCity"
+            android:layout_width="wrap_content"
+            android:text="@string/befor_field_city"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:id="@+id/tripCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:textColor="@color/white"
+                android:layout_marginTop="20dp"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+        <TextView
+            android:id="@+id/fieldContinent"
+            android:layout_width="wrap_content"
+            android:text="@string/befor_field_continent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:id="@+id/tripContinent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginTop="20dp"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+
+
+        </LinearLayout>
+</RelativeLayout>
+
+
+
+
+

@@ -1,0 +1,75 @@
+<!-- Copyright 2017 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
+<resources>
+    <string name="app_name">Carnet de Voyage</string>
+
+    <string name="button_save">Enregistrer</string>
+    <string name="button_txt_take_note">Ajouter des notes textuelles</string>
+    <string name="button_picture_take_note">Ajouter des photos</string>
+    <string name="empty_not_saved">Voyage n\'est pas souvegardé car le champ titre est vide.</string>
+    <string name="action_import">Importer un voyage</string>
+    <string name="action_export">Exporter un voyage</string>
+    <string name="action_list">Liste de voyage</string>
+    <string name="action_Add">Ajouter un voyage</string>
+    <string name="action_ClearDB">Vider la base de données</string>
+    <string name="field_title">  Titre*</string>
+    <string name="field_continent">   Continent</string>
+    <string name="field_city">   Ville</string>
+    <string name="field_country">   Pays</string>
+    <string name="field_note">   Note</string>
+    <string name="add_note">Ajouter une note</string>
+    <string name="dialog_text_msg">Ajouter une description</string>
+    <string name="dialog_valid">Valider</string>
+    <string name="dialog_cancel">Annuler</string>
+    <string name="field_place">Lieu</string>
+    <string name="notes_str_saved">Vos notes textuelles sont sauvegardées</string>
+    <string name="notes_img_saved">Vos notes photos sont sauvegardées</string>
+    <string name="button_txt_notes">Notes textuelles</string>
+    <string name="tag_separator">TAGSEPARATOR</string>
+    <string name="befor_each_tag">#</string>
+    <string name="notes_str_not_saved">Vos notes textuelles ne sont pas enregistrées</string>
+    <string name="notes_img_not_saved">Vos notes photos ne sont pas enregistrées</string>
+    <string name="tag_separator_display">\t</string>
+    <string name="note_separator">NOTESEPARATOR</string>
+    <string name="contenu_note_separator">CONTENUSEPARATOR</string>
+    <string name="item_tags">Tags :</string>
+    <string name="item_place">Ville :</string>
+
+    <string name="item_text">Text :</string>
+    <string-array name="note_type">
+        <item>-- Type de Notes --</item>
+        <item>importer une image</item>
+        <item>prendre une photo</item>
+
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+    <string name="mapKey">AIzaSyB21YyGfGFRbtd9-yuLTeNTuGiUewpMmiE</string>
+    <string name="befor_field_continent">Continent :</string>
+    <string name="befor_field_city">Ville :</string>
+    <string name="befor_field_country">Pays :</string>
+    <string name="befor_field_title">Titre :</string>
+    <string name="btn_notes_photo">Notes photo</string>
+    <string name="btn_notes_texte">Notes texte</string>
+    <string name="btn_update">Modifier</string>
+    <string name="save_trip">Enregistrer</string>
+    <string name="trip_saved">Votre voyage est enregistré</string>
+    <string name="save_trips">Enregistrer les notes</string>
+    <string name="save_the_trip">Enregistrer la note</string>
+    <string name="take_picture">Prendre une photo</string>
+    <string name="Place">Place</string>
+    <string name="Add_tag">Ajouter</string>
+    <string name="tag_hint">Tag</string>
+    <string name="txt_hint">Texte</string>
+</resources>

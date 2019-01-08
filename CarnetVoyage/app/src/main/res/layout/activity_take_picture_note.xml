@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/image6"
+
+    >
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        >
+        <EditText
+            android:id="@+id/edit_tag_note_picture"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/tag_hint"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+    <Button
+        android:id="@+id/add_tag"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@layout/my_button"
+        android:text="@string/Add_tag"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/buttonLabel" />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/edit_place_note_picture"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:hint="@string/Place"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        />
+        <Button
+            android:id="@+id/take_picture"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@layout/my_button"
+            android:text="@string/take_picture"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+
+            android:textColor="@color/buttonLabel" />
+    <Button
+        android:id="@+id/add_note"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_note_txt"
+        android:layout_alignEnd="@+id/edit_note_txt"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@layout/my_button"
+        android:text="@string/save_the_trip"
+        android:textColor="@color/buttonLabel" />
+        <Button
+            android:id="@+id/save_notes"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_note_txt"
+            android:layout_alignEnd="@+id/edit_note_txt"
+            android:layout_marginTop="20dp"
+
+            android:layout_gravity="center"
+            android:background="@layout/my_button"
+            android:text="@string/save_trips"
+            android:textColor="@color/buttonLabel" />
+
+
+</LinearLayout>

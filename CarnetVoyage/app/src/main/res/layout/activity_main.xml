@@ -1,0 +1,85 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:background="@mipmap/image2"
+
+
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_marginTop="70dp"
+
+        android:src="@mipmap/iconmenu"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="300dp"
+        android:background="#2980b9"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonAdd"
+        android:layout_below="@+id/imageView"
+        android:layout_alignLeft="@+id/buttonList"
+        android:layout_alignStart="@+id/buttonList"
+        android:drawableLeft="@mipmap/icondadd"
+        android:drawableStart="@mipmap/icondadd"
+        android:text="@string/action_Add"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/buttonList"
+        android:layout_below="@+id/buttonAdd"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="#2980b9"
+        android:text="@string/action_list"
+        android:drawableLeft="@mipmap/iconlist"
+        android:drawableStart="@mipmap/iconlist"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="#2980b9"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@mipmap/import_ic"
+        android:drawableStart="@mipmap/import_ic"
+        android:text="@string/action_import"
+
+        android:layout_below="@+id/buttonList"
+        android:id="@+id/buttonImport"
+        />
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="#2980b9"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@mipmap/export_ic"
+        android:drawableStart="@mipmap/export_ic"
+        android:text="@string/action_export"
+        android:layout_below="@+id/buttonImport"
+        android:id="@+id/buttonExport"
+        />
+
+    <Button
+        android:id="@+id/buttonClearDB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonExport"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="10dp"
+        android:background="#2980b9"
+        android:text="@string/action_ClearDB" />
+
+</RelativeLayout>

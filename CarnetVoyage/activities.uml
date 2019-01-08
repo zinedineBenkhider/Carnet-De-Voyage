@@ -1,0 +1,2493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:PapyrusJava="http://www.eclipse.org/papyrus/PapyrusJava/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_eeqSEPidEei0EZK9sH0UcA" name="activities">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_ehcgUPidEei0EZK9sH0UcA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_jcYwUPidEei0EZK9sH0UcA" name="CarnetVoyage">
+      <packagedElement xmi:type="uml:Package" xmi:id="_jcyY8PidEei0EZK9sH0UcA" name="com">
+        <packagedElement xmi:type="uml:Package" xmi:id="_jcyY8fidEei0EZK9sH0UcA" name="example">
+          <packagedElement xmi:type="uml:Package" xmi:id="_jcyY8vidEei0EZK9sH0UcA" name="android">
+            <packagedElement xmi:type="uml:Package" xmi:id="_jcyY8_idEei0EZK9sH0UcA" name="carnetDeVoyage">
+              <packagedElement xmi:type="uml:Package" xmi:id="_jcyY9PidEei0EZK9sH0UcA" name="activities">
+                <packagedElement xmi:type="uml:Package" xmi:id="_szBvkPidEei0EZK9sH0UcA" name="noteActivities">
+                  <packagedElement xmi:type="uml:Class" xmi:id="_szCWoPidEei0EZK9sH0UcA" name="TakeNoteActivity" visibility="public">
+                    <generalization xmi:type="uml:Generalization" xmi:id="_szCWofidEei0EZK9sH0UcA" general="_jc8J9fidEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_szCWovidEei0EZK9sH0UcA" name="EXTRA_REPLY_NOTES_TXT" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_szC9sPidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;com.example.android.activities.takeNoteActivity.NOTE_TXT&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_szC9sfidEei0EZK9sH0UcA" name="EXTRA_REPLY_NOTES_IMG" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_szC9svidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;com.example.android.activities.takeNoteActivity.NOTES_IMG&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_szC9s_idEei0EZK9sH0UcA" name="RECORD_PICTURE_ACTIVITY_REQUEST_CODE" visibility="public" isLeaf="true" isStatic="true" isUnique="false">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_szC9tPidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>90</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_szDkwPidEei0EZK9sH0UcA" name="allPaths" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_szDkwfidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_szDkwvidEei0EZK9sH0UcA" name="notesCreated" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_szDkw_idEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_szEL0fidEei0EZK9sH0UcA" name="onCreate" specification="_szDkxPidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_take_note);
+    Button buttonTakePicture = findViewById(R.id.take_picture);
+    //recordPicture=new RecordPictureActivity(this);
+    buttonTakePicture.setOnClickListener(new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(TakeNoteActivity.this, RecordPictureActivity.class);
+            startActivityForResult(intent, RECORD_PICTURE_ACTIVITY_REQUEST_CODE);
+        }
+    });
+    Button buttonSaveNotes = findViewById(R.id.save_notes);
+    buttonSaveNotes.setOnClickListener(new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+            Intent replyIntent = new Intent();
+            EditText fieldNote = findViewById(R.id.edit_note_txt);
+            String noteTxt = fieldNote.getText().toString();
+            if (!noteTxt.equals(&quot;&quot;)) {
+                notesCreated = noteTxt;
+            }
+            replyIntent.putExtra(EXTRA_REPLY_NOTES_TXT, notesCreated);
+            replyIntent.putExtra(EXTRA_REPLY_NOTES_IMG, allPaths);
+            setResult(RESULT_OK, replyIntent);
+            //rajouter ici les URL des autres notes
+            finish();
+        }
+    });
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_szHPIPidEei0EZK9sH0UcA" name="onActivityResult" specification="_szGBAPidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    super.onActivityResult(requestCode, resultCode, data);
+    if (requestCode == RECORD_PICTURE_ACTIVITY_REQUEST_CODE &amp;&amp; resultCode == RESULT_OK) {
+        allPaths += data.getStringExtra(RecordPictureActivity.EXTRA_REPLY_FILE_PATH_PICTURE) + &quot;#&quot;;
+    }
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_szDkxPidEei0EZK9sH0UcA" name="onCreate" visibility="protected" method="_szEL0fidEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_szEL0PidEei0EZK9sH0UcA" name="savedInstanceState" type="_jeheUvidEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_szGBAPidEei0EZK9sH0UcA" name="onActivityResult" visibility="protected" method="_szHPIPidEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_szGoEPidEei0EZK9sH0UcA" name="requestCode">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                      </ownedParameter>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_szGoEfidEei0EZK9sH0UcA" name="resultCode">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                      </ownedParameter>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_szGoEvidEei0EZK9sH0UcA" name="data" type="_jeiscvidEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </packagedElement>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package" xmi:id="_1248wPidEei0EZK9sH0UcA" name="recordActivities">
+                  <packagedElement xmi:type="uml:Class" xmi:id="_125j0PidEei0EZK9sH0UcA" name="RecordAudioActivity" visibility="public">
+                    <generalization xmi:type="uml:Generalization" xmi:id="_126K4PidEei0EZK9sH0UcA" general="_jc8J9fidEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_126K4fidEei0EZK9sH0UcA" name="LOG_TAG" visibility="private" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_126K4vidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;AudioRecordTest&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_128AEPidEei0EZK9sH0UcA" name="REQUEST_RECORD_AUDIO_PERMISSION" visibility="private" isLeaf="true" isStatic="true" isUnique="false">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_128AEfidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>200</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_128nIPidEei0EZK9sH0UcA" name="mFileName" visibility="private" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_128nIfidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>null</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_12_DYfidEei0EZK9sH0UcA" name="mRecordButton" visibility="private" type="_129OMPidEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_12_DYvidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>null</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13CtwfidEei0EZK9sH0UcA" name="mRecorder" visibility="private" type="_13BfofidEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_13CtwvidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>null</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13D74fidEei0EZK9sH0UcA" name="mPlayButton" visibility="private" type="_13Ctw_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_13D74vidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>null</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13FKAPidEei0EZK9sH0UcA" name="mPlayer" visibility="private" type="_13D74_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_13FKAfidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>null</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13FKAvidEei0EZK9sH0UcA" name="permissionToRecordAccepted" visibility="private" isUnique="false">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_13FKA_idEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>false</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13FKBPidEei0EZK9sH0UcA" name="permissions" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_13FKBfidEei0EZK9sH0UcA"/>
+                      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_13FKBvidEei0EZK9sH0UcA" value="*"/>
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_13FxEPidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>{ Manifest.permission.RECORD_AUDIO }</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13GYI_idEei0EZK9sH0UcA" name="onRequestPermissionsResult" specification="_13FxEfidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    switch(requestCode) {
+        case REQUEST_RECORD_AUDIO_PERMISSION:
+            permissionToRecordAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+            break;
+    }
+    if (!permissionToRecordAccepted)
+        finish();
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13GYJvidEei0EZK9sH0UcA" name="onRecord" specification="_13GYJPidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    if (start) {
+        startRecording();
+    } else {
+        stopRecording();
+    }
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13G_MvidEei0EZK9sH0UcA" name="onPlay" specification="_13G_MPidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    if (start) {
+        startPlaying();
+    } else {
+        stopPlaying();
+    }
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13G_NPidEei0EZK9sH0UcA" name="startPlaying" specification="_13G_M_idEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mPlayer = new MediaPlayer();
+    try {
+        mPlayer.setDataSource(mFileName);
+        mPlayer.prepare();
+        mPlayer.start();
+    } catch (IOException e) {
+        Log.e(LOG_TAG, &quot;prepare() failed&quot;);
+    }
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13G_NvidEei0EZK9sH0UcA" name="stopPlaying" specification="_13G_NfidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mPlayer.release();
+    mPlayer = null;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13HmQfidEei0EZK9sH0UcA" name="startRecording" specification="_13HmQPidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mRecorder = new MediaRecorder();
+    mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+    mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+    mRecorder.setOutputFile(mFileName);
+    mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+    try {
+        mRecorder.prepare();
+    } catch (IOException e) {
+        Log.e(LOG_TAG, &quot;prepare() failed&quot;);
+    }
+    mRecorder.start();
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13HmQ_idEei0EZK9sH0UcA" name="stopRecording" specification="_13HmQvidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mRecorder.stop();
+    mRecorder.release();
+    mRecorder = null;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13Ns5fidEei0EZK9sH0UcA" name="onCreate" specification="_13Ns4_idEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    super.onCreate(icicle);
+    File file = (File) getIntent().getExtras().get(&quot;voiceFileName&quot;);
+    mFileName = file.getAbsolutePath();
+    ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
+    LinearLayout ll = new LinearLayout(this);
+    mRecordButton = new RecordButton(this);
+    ll.addView(mRecordButton, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0));
+    mPlayButton = new PlayButton(this);
+    ll.addView(mPlayButton, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0));
+    setContentView(ll);
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13OT8fidEei0EZK9sH0UcA" name="onStop" specification="_13OT8PidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    super.onStop();
+    if (mRecorder != null) {
+        mRecorder.release();
+        mRecorder = null;
+    }
+    if (mPlayer != null) {
+        mPlayer.release();
+        mPlayer = null;
+    }
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13FxEfidEei0EZK9sH0UcA" name="onRequestPermissionsResult" visibility="public" method="_13GYI_idEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13FxEvidEei0EZK9sH0UcA" name="requestCode">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                      </ownedParameter>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13FxE_idEei0EZK9sH0UcA" name="permissions" type="_jekho_idEei0EZK9sH0UcA">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_13FxFPidEei0EZK9sH0UcA"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_13FxFfidEei0EZK9sH0UcA" value="*"/>
+                      </ownedParameter>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13GYIPidEei0EZK9sH0UcA" name="grantResults">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_13GYIfidEei0EZK9sH0UcA"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_13GYIvidEei0EZK9sH0UcA" value="*"/>
+                      </ownedParameter>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13GYJPidEei0EZK9sH0UcA" name="onRecord" visibility="private" method="_13GYJvidEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13GYJfidEei0EZK9sH0UcA" name="start">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                      </ownedParameter>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13G_MPidEei0EZK9sH0UcA" name="onPlay" visibility="private" method="_13G_MvidEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13G_MfidEei0EZK9sH0UcA" name="start">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                      </ownedParameter>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13G_M_idEei0EZK9sH0UcA" name="startPlaying" visibility="private" method="_13G_NPidEei0EZK9sH0UcA"/>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13G_NfidEei0EZK9sH0UcA" name="stopPlaying" visibility="private" method="_13G_NvidEei0EZK9sH0UcA"/>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13HmQPidEei0EZK9sH0UcA" name="startRecording" visibility="private" method="_13HmQfidEei0EZK9sH0UcA"/>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13HmQvidEei0EZK9sH0UcA" name="stopRecording" visibility="private" method="_13HmQ_idEei0EZK9sH0UcA"/>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13Ns4_idEei0EZK9sH0UcA" name="onCreate" visibility="public" method="_13Ns5fidEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13Ns5PidEei0EZK9sH0UcA" name="icicle" type="_jeheUvidEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13OT8PidEei0EZK9sH0UcA" name="onStop" visibility="public" method="_13OT8fidEei0EZK9sH0UcA"/>
+                    <nestedClassifier xmi:type="uml:Class" xmi:id="_129OMPidEei0EZK9sH0UcA" name="RecordButton">
+                      <generalization xmi:type="uml:Generalization" xmi:id="_13I0YfidEei0EZK9sH0UcA" general="_13INUfidEei0EZK9sH0UcA"/>
+                      <ownedAttribute xmi:type="uml:Property" xmi:id="_13JbcPidEei0EZK9sH0UcA" name="mStartRecording" visibility="private" isUnique="false">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                        <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_13JbcfidEei0EZK9sH0UcA" name="defaultValue">
+                          <language>JAVA</language>
+                          <body>true</body>
+                        </defaultValue>
+                      </ownedAttribute>
+                      <ownedAttribute xmi:type="uml:Property" xmi:id="_13KCgfidEei0EZK9sH0UcA" name="clicker" visibility="private" type="_13JbcvidEei0EZK9sH0UcA" isUnique="false">
+                        <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_13KCgvidEei0EZK9sH0UcA" name="defaultValue">
+                          <language>JAVA</language>
+                          <body>new OnClickListener() {
+
+    public void onClick(View v) {
+        onRecord(mStartRecording);
+        if (mStartRecording) {
+            setText(&quot;Arrếter&quot;);
+        } else {
+            setText(&quot;Démarrer&quot;);
+        }
+        mStartRecording = !mStartRecording;
+    }
+}</body>
+                        </defaultValue>
+                      </ownedAttribute>
+                      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13L3svidEei0EZK9sH0UcA" name="RecordButton" specification="_13LQoPidEei0EZK9sH0UcA">
+                        <language>JAVA</language>
+                        <body>
+    super(ctx);
+    setText(&quot;Démarrer&quot;);
+    setOnClickListener(clicker);
+</body>
+                      </ownedBehavior>
+                      <ownedOperation xmi:type="uml:Operation" xmi:id="_13LQoPidEei0EZK9sH0UcA" name="RecordButton" visibility="public" method="_13L3svidEei0EZK9sH0UcA">
+                        <ownedParameter xmi:type="uml:Parameter" xmi:id="_13L3sfidEei0EZK9sH0UcA" name="ctx" type="_13KCg_idEei0EZK9sH0UcA"/>
+                      </ownedOperation>
+                    </nestedClassifier>
+                    <nestedClassifier xmi:type="uml:Class" xmi:id="_13Ctw_idEei0EZK9sH0UcA" name="PlayButton">
+                      <generalization xmi:type="uml:Generalization" xmi:id="_13MewPidEei0EZK9sH0UcA" general="_13INUfidEei0EZK9sH0UcA"/>
+                      <ownedAttribute xmi:type="uml:Property" xmi:id="_13MewfidEei0EZK9sH0UcA" name="mStartPlaying" visibility="private" isUnique="false">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                        <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_13MewvidEei0EZK9sH0UcA" name="defaultValue">
+                          <language>JAVA</language>
+                          <body>true</body>
+                        </defaultValue>
+                      </ownedAttribute>
+                      <ownedAttribute xmi:type="uml:Property" xmi:id="_13Mew_idEei0EZK9sH0UcA" name="clicker" visibility="private" type="_13JbcvidEei0EZK9sH0UcA" isUnique="false">
+                        <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_13MexPidEei0EZK9sH0UcA" name="defaultValue">
+                          <language>JAVA</language>
+                          <body>new OnClickListener() {
+
+    public void onClick(View v) {
+        onPlay(mStartPlaying);
+        if (mStartPlaying) {
+            setText(&quot;Lire&quot;);
+        } else {
+            setText(&quot;Pause&quot;);
+        }
+        mStartPlaying = !mStartPlaying;
+    }
+}</body>
+                        </defaultValue>
+                      </ownedAttribute>
+                      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13Ns4vidEei0EZK9sH0UcA" name="PlayButton" specification="_13MexfidEei0EZK9sH0UcA">
+                        <language>JAVA</language>
+                        <body>
+    super(ctx);
+    setText(&quot;Start playing&quot;);
+    setOnClickListener(clicker);
+</body>
+                      </ownedBehavior>
+                      <ownedOperation xmi:type="uml:Operation" xmi:id="_13MexfidEei0EZK9sH0UcA" name="PlayButton" visibility="public" method="_13Ns4vidEei0EZK9sH0UcA">
+                        <ownedParameter xmi:type="uml:Parameter" xmi:id="_13Ns4fidEei0EZK9sH0UcA" name="ctx" type="_13KCg_idEei0EZK9sH0UcA"/>
+                      </ownedOperation>
+                    </nestedClassifier>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_13JbcvidEei0EZK9sH0UcA" name="OnClickListener"/>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_13OT8vidEei0EZK9sH0UcA" name="RecordVoiceActivity" visibility="public">
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13QJIfidEei0EZK9sH0UcA" name="voiceFileName" visibility="private" type="_13O7AfidEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13QJIvidEei0EZK9sH0UcA" name="id" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13QJI_idEei0EZK9sH0UcA" name="idTrip" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13R-UPidEei0EZK9sH0UcA" name="RecordVoiceActivity" specification="_13QwMPidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13R-U_idEei0EZK9sH0UcA" name="process" specification="_13R-UfidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    Intent intent = new Intent(context, RecordAudioActivity.class);
+    setNoteFile();
+    intent.putExtra(&quot;voiceFileName&quot;, voiceFileName);
+    context.startActivity(intent);
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13SlYfidEei0EZK9sH0UcA" name="setNoteFile" specification="_13SlYPidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    File folder = new File(&quot;sdcard/carnet_de_voyage&quot;);
+    if (!folder.exists()) {
+        folder.mkdir();
+    }
+    voiceFileName = new File(folder, &quot;sample_audio.3gp&quot;);
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13SlZPidEei0EZK9sH0UcA" name="getNoteFileName" specification="_13SlYvidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    return voiceFileName.getName();
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13QwMPidEei0EZK9sH0UcA" name="RecordVoiceActivity" visibility="public" method="_13R-UPidEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13RXQfidEei0EZK9sH0UcA" name="id" type="_jekho_idEei0EZK9sH0UcA"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13RXQvidEei0EZK9sH0UcA" name="idTrip" type="_jekho_idEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13R-UfidEei0EZK9sH0UcA" name="process" visibility="public" method="_13R-U_idEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13R-UvidEei0EZK9sH0UcA" name="context" type="_13KCg_idEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13SlYPidEei0EZK9sH0UcA" name="setNoteFile" visibility="public" method="_13SlYfidEei0EZK9sH0UcA"/>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13SlYvidEei0EZK9sH0UcA" name="getNoteFileName" visibility="public" method="_13SlZPidEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13SlY_idEei0EZK9sH0UcA" type="_jekho_idEei0EZK9sH0UcA" direction="return"/>
+                    </ownedOperation>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_13TzgPidEei0EZK9sH0UcA" name="RecordPictureActivity" visibility="public">
+                    <generalization xmi:type="uml:Generalization" xmi:id="_13TzgfidEei0EZK9sH0UcA" general="_jc8J9fidEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13UakPidEei0EZK9sH0UcA" name="EXTRA_REPLY_FILE_PATH_PICTURE" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_13UakfidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;com.example.android.activities.RecordPictureActivity.NOTE_PICTURE&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13VBoPidEei0EZK9sH0UcA" name="imageFilePath" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13VBofidEei0EZK9sH0UcA" name="pathOfPictureCreated" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_13VBovidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13VosPidEei0EZK9sH0UcA" name="REQUEST_IMAGE" visibility="public" isLeaf="true" isStatic="true" isUnique="false">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_13VosfidEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>100</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13VotPidEei0EZK9sH0UcA" name="onCreate" specification="_13VosvidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    super.onCreate(savedInstanceState);
+    openCameraIntent();
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13WPwfidEei0EZK9sH0UcA" name="getPathOfPictureCreated" specification="_13VotfidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    return pathOfPictureCreated;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13WPw_idEei0EZK9sH0UcA" name="openCameraIntent" specification="_13WPwvidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    Intent pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    if (pictureIntent.resolveActivity(getPackageManager()) != null) {
+        File photoFile;
+        try {
+            photoFile = createImageFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
+        Uri photoUri = FileProvider.getUriForFile(this, this.getPackageName() + &quot;.provider&quot;, photoFile);
+        pictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+        setResult(RESULT_OK, pictureIntent);
+        startActivityForResult(pictureIntent, REQUEST_IMAGE);
+    }
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13W20vidEei0EZK9sH0UcA" name="onActivityResult" specification="_13WPxPidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    Intent i = new Intent();
+    if (requestCode == REQUEST_IMAGE) {
+        if (resultCode == RESULT_OK) {
+            pathOfPictureCreated = imageFilePath;
+            Log.i(&quot;pahth enregestre&quot;, pathOfPictureCreated);
+            i.putExtra(EXTRA_REPLY_FILE_PATH_PICTURE, pathOfPictureCreated);
+            setResult(RESULT_OK, i);
+        } else if (resultCode == RESULT_CANCELED) {
+            Toast.makeText(this, &quot;La photo n'est pas souvergardée&quot;, Toast.LENGTH_SHORT).show();
+        }
+    }
+    finish();
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13YE8fidEei0EZK9sH0UcA" name="createImageFile" specification="_13W20_idEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    String timeStamp = new SimpleDateFormat(&quot;yyyyMMdd_HHmm&quot;, Locale.getDefault()).format(new Date());
+    String imageFileName = &quot;IMG_&quot; + timeStamp + &quot;_&quot;;
+    File storageDir = this.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+    File image = File.createTempFile(imageFileName, &quot;.jpg&quot;, storageDir);
+    imageFilePath = image.getAbsolutePath();
+    return image;
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13VosvidEei0EZK9sH0UcA" name="onCreate" visibility="protected" method="_13VotPidEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13Vos_idEei0EZK9sH0UcA" name="savedInstanceState" type="_jeheUvidEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13VotfidEei0EZK9sH0UcA" name="getPathOfPictureCreated" visibility="public" method="_13WPwfidEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13WPwPidEei0EZK9sH0UcA" type="_jekho_idEei0EZK9sH0UcA" direction="return"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13WPwvidEei0EZK9sH0UcA" name="openCameraIntent" visibility="public" method="_13WPw_idEei0EZK9sH0UcA"/>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13WPxPidEei0EZK9sH0UcA" name="onActivityResult" visibility="public" method="_13W20vidEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13WPxfidEei0EZK9sH0UcA" name="requestCode">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                      </ownedParameter>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13W20PidEei0EZK9sH0UcA" name="resultCode">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                      </ownedParameter>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13W20fidEei0EZK9sH0UcA" name="data" type="_jeiscvidEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13W20_idEei0EZK9sH0UcA" name="createImageFile" visibility="private" method="_13YE8fidEei0EZK9sH0UcA" raisedException="_13Xd4PidEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13W21PidEei0EZK9sH0UcA" type="_13O7AfidEei0EZK9sH0UcA" direction="return"/>
+                    </ownedOperation>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_13YsAPidEei0EZK9sH0UcA" name="RecordVideoActivity" visibility="public">
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13YsAfidEei0EZK9sH0UcA" name="videoFile" visibility="private" type="_13O7AfidEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13YsAvidEei0EZK9sH0UcA" name="id" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_13YsA_idEei0EZK9sH0UcA" name="idTrip" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13Z6I_idEei0EZK9sH0UcA" name="RecordVideoActivity" specification="_13ZTEPidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13ahMvidEei0EZK9sH0UcA" name="process" specification="_13ahMPidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    Intent camera_intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+    setNoteFile();
+    Uri video_uri = Uri.fromFile(videoFile);
+    camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, video_uri);
+    camera_intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1);
+    context.startActivity(camera_intent);
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13ahNPidEei0EZK9sH0UcA" name="setNoteFile" specification="_13ahM_idEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    File folder = new File(&quot;sdcard/carnet_de_voyage&quot;);
+    if (!folder.exists()) {
+        folder.mkdir();
+    }
+    videoFile = new File(folder, &quot;sample_video.mp4&quot;);
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_13bIQfidEei0EZK9sH0UcA" name="getNoteFileName" specification="_13ahNfidEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    return videoFile.getName();
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13ZTEPidEei0EZK9sH0UcA" name="RecordVideoActivity" visibility="public" method="_13Z6I_idEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13Z6IfidEei0EZK9sH0UcA" name="id" type="_jekho_idEei0EZK9sH0UcA"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13Z6IvidEei0EZK9sH0UcA" name="idTrip" type="_jekho_idEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13ahMPidEei0EZK9sH0UcA" name="process" visibility="public" method="_13ahMvidEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13ahMfidEei0EZK9sH0UcA" name="context" type="_13KCg_idEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13ahM_idEei0EZK9sH0UcA" name="setNoteFile" visibility="public" method="_13ahNPidEei0EZK9sH0UcA"/>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_13ahNfidEei0EZK9sH0UcA" name="getNoteFileName" visibility="public" method="_13bIQfidEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_13bIQPidEei0EZK9sH0UcA" type="_jekho_idEei0EZK9sH0UcA" direction="return"/>
+                    </ownedOperation>
+                  </packagedElement>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package" xmi:id="_FiprAPieEei0EZK9sH0UcA" name="tripActivities">
+                  <packagedElement xmi:type="uml:Class" xmi:id="_FisHQPieEei0EZK9sH0UcA" name="UpdateTripViewModel" visibility="public">
+                    <generalization xmi:type="uml:Generalization" xmi:id="_FivKkPieEei0EZK9sH0UcA" general="_jepaIvidEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_FivxoPieEei0EZK9sH0UcA" name="mTripReposistory" visibility="private" type="_jesdcPidEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fixm0PieEei0EZK9sH0UcA" name="UpdateTripViewModel" specification="_FivxofieEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    super(application);
+    mTripReposistory = TripRepository.getInstance(application);
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FizcAPieEei0EZK9sH0UcA" name="updateTrip" specification="_Fixm0fieEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    Trip trip = mTripReposistory.getTripWithId(id);
+    trip.setCity(city);
+    trip.setContinents(continent);
+    trip.setCountry(country);
+    trip.title = title;
+    mTripReposistory.update(trip);
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_FivxofieEei0EZK9sH0UcA" name="UpdateTripViewModel" visibility="public" method="_Fixm0PieEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Fiw_wfieEei0EZK9sH0UcA" name="application" type="_jevgwPidEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Fixm0fieEei0EZK9sH0UcA" name="updateTrip" visibility="public" method="_FizcAPieEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_FiyN4PieEei0EZK9sH0UcA" name="id" type="_jekho_idEei0EZK9sH0UcA"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_FiyN4fieEei0EZK9sH0UcA" name="city" type="_jekho_idEei0EZK9sH0UcA"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Fiy08PieEei0EZK9sH0UcA" name="continent" type="_jekho_idEei0EZK9sH0UcA"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Fiy08fieEei0EZK9sH0UcA" name="title" type="_jekho_idEei0EZK9sH0UcA"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Fiy08vieEei0EZK9sH0UcA" name="country" type="_jekho_idEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_Fi0DEPieEei0EZK9sH0UcA" name="UpdateTripActivity" visibility="public">
+                    <generalization xmi:type="uml:Generalization" xmi:id="_Fi0DEfieEei0EZK9sH0UcA" general="_jc8J9fidEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi1RMfieEei0EZK9sH0UcA" name="mEditTitleView" visibility="private" type="_Fi0DE_ieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi1RMvieEei0EZK9sH0UcA" name="mEditCityView" visibility="private" type="_Fi0DE_ieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi1RM_ieEei0EZK9sH0UcA" name="mEditCountryView" visibility="private" type="_Fi0DE_ieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi14QPieEei0EZK9sH0UcA" name="mEditContinentView" visibility="private" type="_Fi0DE_ieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi14QfieEei0EZK9sH0UcA" name="id" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi14QvieEei0EZK9sH0UcA" name="mViewModel" visibility="private" type="_FisHQPieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fi2fUPieEei0EZK9sH0UcA" name="onCreate" specification="_Fi14Q_ieEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    super.onCreate(savedInstanceState);
+    mViewModel = ViewModelProviders.of(this).get(UpdateTripViewModel.class);
+    setContentView(R.layout.update_trip);
+    mEditTitleView = findViewById(R.id.updateTitle);
+    mEditCityView = findViewById(R.id.updateCity);
+    mEditCountryView = findViewById(R.id.updateCountry);
+    mEditContinentView = findViewById(R.id.updateContinent);
+    getInformationOfTrip();
+    Button buttonSave = findViewById(R.id.boutonSave);
+    buttonSave.setOnClickListener(new View.OnClickListener() {
+
+        public void onClick(View view) {
+            Intent replyIntent = new Intent();
+            if (TextUtils.isEmpty(mEditTitleView.getText())) {
+                setResult(RESULT_CANCELED, replyIntent);
+            } else {
+                String title = mEditTitleView.getText().toString();
+                replyIntent.putExtra(TripDetailFragment.EXTRA_REPLY_ID, id);
+                String city = mEditCityView.getText().toString();
+                String continents = mEditContinentView.getText().toString();
+                String country = mEditCountryView.getText().toString();
+                mViewModel.updateTrip(id, city, continents, title, country);
+                setResult(RESULT_OK, replyIntent);
+            }
+            finish();
+        }
+    });
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fi2fUvieEei0EZK9sH0UcA" name="getInformationOfTrip" specification="_Fi2fUfieEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    Intent data = getIntent();
+    id = data.getStringExtra(TripDetailFragment.EXTRA_REPLY_ID);
+    mEditTitleView.setText(data.getStringExtra(TripDetailFragment.EXTRA_REPLY_TITLE));
+    mEditCityView.setText(data.getStringExtra(TripDetailFragment.EXTRA_REPLY_CITY));
+    mEditContinentView.setText(data.getStringExtra(TripDetailFragment.EXTRA_REPLY_CONTINENTS));
+    mEditCountryView.setText(data.getStringExtra(TripDetailFragment.EXTRA_REPLY_CONTRY));
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Fi14Q_ieEei0EZK9sH0UcA" name="onCreate" visibility="protected" method="_Fi2fUPieEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Fi14RPieEei0EZK9sH0UcA" name="savedInstanceState" type="_jeheUvidEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Fi2fUfieEei0EZK9sH0UcA" name="getInformationOfTrip" visibility="public" method="_Fi2fUvieEei0EZK9sH0UcA"/>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_Fi3GYPieEei0EZK9sH0UcA" name="NewTripActivity" visibility="public">
+                    <generalization xmi:type="uml:Generalization" xmi:id="_Fi3GYfieEei0EZK9sH0UcA" general="_jc8J9fidEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi3tcPieEei0EZK9sH0UcA" name="EXTRA_REPLY_COUNTRY" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Fi3tcfieEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;com.example.android.mainActivity.COUNTRY&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi3tcvieEei0EZK9sH0UcA" name="EXTRA_REPLY_TITLE" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Fi3tc_ieEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;com.example.android.mainActivity.TITLE&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi3tdPieEei0EZK9sH0UcA" name="EXTRA_REPLY_CONTINENTS" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Fi4UgPieEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;com.example.android.mainActivity.CONTINENTS&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi4UgfieEei0EZK9sH0UcA" name="EXTRA_REPLY_CITY" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Fi4UgvieEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;com.example.android.mainActivity.CITY&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi4Ug_ieEei0EZK9sH0UcA" name="EXTRA_REPLY_NOTES_IMG" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Fi4UhPieEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;com.example.android.mainActivity.NOTES_IMG&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi47kPieEei0EZK9sH0UcA" name="EXTRA_REPLY_NOTE_TXT" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Fi47kfieEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;com.example.android.mainActivity.NOTE_TXT&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi47kvieEei0EZK9sH0UcA" name="NEW_NOTES_ACTIVITY_REQUEST_CODE" visibility="private" isLeaf="true" isStatic="true" isUnique="false">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Fi47k_ieEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>339</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi5ioPieEei0EZK9sH0UcA" name="mEditTitleView" visibility="private" type="_Fi0DE_ieEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Fi5iofieEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>null</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi5iovieEei0EZK9sH0UcA" name="mEditCityView" visibility="private" type="_Fi0DE_ieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi5io_ieEei0EZK9sH0UcA" name="mEditCountryView" visibility="private" type="_Fi0DE_ieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi6JsPieEei0EZK9sH0UcA" name="mEditContinentView" visibility="private" type="_Fi0DE_ieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi6JsfieEei0EZK9sH0UcA" name="noteString" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Fi6JsvieEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="_Fi6wwPieEei0EZK9sH0UcA" name="notesImg" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                      <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_Fi6wwfieEei0EZK9sH0UcA" name="defaultValue">
+                        <language>JAVA</language>
+                        <body>&quot;&quot;</body>
+                      </defaultValue>
+                    </ownedAttribute>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fi7X0fieEei0EZK9sH0UcA" name="onCreate" specification="_Fi6wwvieEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_new_trip);
+    sendInformations();
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fi7-4PieEei0EZK9sH0UcA" name="sendInformations" specification="_Fi7X0vieEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mEditTitleView = findViewById(R.id.edit_title);
+    mEditCityView = findViewById(R.id.edit_city);
+    mEditCountryView = findViewById(R.id.edit_country);
+    mEditContinentView = findViewById(R.id.edit_continents);
+    final Button save_trip_button = findViewById(R.id.button_save);
+    final Button take_note_button = findViewById(R.id.take_note);
+    save_trip_button.setOnClickListener(new View.OnClickListener() {
+
+        public void onClick(View view) {
+            Intent replyIntent = new Intent();
+            if (TextUtils.isEmpty(mEditTitleView.getText())) {
+                //if field of title is empty
+                setResult(RESULT_CANCELED, replyIntent);
+            } else {
+                String title = mEditTitleView.getText().toString();
+                replyIntent.putExtra(EXTRA_REPLY_TITLE, title);
+                String city = mEditCityView.getText().toString();
+                replyIntent.putExtra(EXTRA_REPLY_CITY, city);
+                String continents = mEditContinentView.getText().toString();
+                replyIntent.putExtra(EXTRA_REPLY_CONTINENTS, continents);
+                String country = mEditCountryView.getText().toString();
+                replyIntent.putExtra(EXTRA_REPLY_COUNTRY, country);
+                replyIntent.putExtra(EXTRA_REPLY_NOTE_TXT, noteString);
+                replyIntent.putExtra(EXTRA_REPLY_NOTES_IMG, notesImg);
+                setResult(RESULT_OK, replyIntent);
+            }
+            finish();
+        }
+    });
+    take_note_button.setOnClickListener(new View.OnClickListener() {
+
+        public void onClick(View button) {
+            Intent intent = new Intent(NewTripActivity.this, TakeNoteActivity.class);
+            startActivityForResult(intent, NEW_NOTES_ACTIVITY_REQUEST_CODE);
+        }
+    });
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Fi9NAvieEei0EZK9sH0UcA" name="onActivityResult" specification="_Fi8l8PieEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    super.onActivityResult(requestCode, resultCode, data);
+    if (requestCode == NEW_NOTES_ACTIVITY_REQUEST_CODE &amp;&amp; resultCode == RESULT_OK) {
+        noteString = data.getStringExtra(TakeNoteActivity.EXTRA_REPLY_NOTES_TXT);
+        notesImg = data.getStringExtra(TakeNoteActivity.EXTRA_REPLY_NOTES_IMG);
+    } else {
+        Toast.makeText(this, R.string.empty_not_saved, Toast.LENGTH_LONG).show();
+    }
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Fi6wwvieEei0EZK9sH0UcA" name="onCreate" visibility="public" method="_Fi7X0fieEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Fi7X0PieEei0EZK9sH0UcA" name="savedInstanceState" type="_jeheUvidEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Fi7X0vieEei0EZK9sH0UcA" name="sendInformations" visibility="public" method="_Fi7-4PieEei0EZK9sH0UcA"/>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_Fi8l8PieEei0EZK9sH0UcA" name="onActivityResult" visibility="public" method="_Fi9NAvieEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Fi8l8fieEei0EZK9sH0UcA" name="requestCode">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                      </ownedParameter>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Fi9NAPieEei0EZK9sH0UcA" name="resultCode">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                      </ownedParameter>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Fi9NAfieEei0EZK9sH0UcA" name="data" type="_jeiscvidEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_Fi_pQPieEei0EZK9sH0UcA" name="ListTripActivity" visibility="public">
+                    <generalization xmi:type="uml:Generalization" xmi:id="_Fi_pQfieEei0EZK9sH0UcA" general="_jc8J9fidEei0EZK9sH0UcA"/>
+                    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_FjBecfieEei0EZK9sH0UcA" name="ListTripActivity implements OnItemSelectedListener" client="_Fi_pQPieEei0EZK9sH0UcA" supplier="_FjAQUfieEei0EZK9sH0UcA" contract="_FjAQUfieEei0EZK9sH0UcA"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FjCFgvieEei0EZK9sH0UcA" name="onCreate" specification="_FjCFgPieEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.list_trip);
+    if (savedInstanceState == null) {
+        // Instance of first fragment
+        ListTripFragment firstFragment = new ListTripFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.flContainer, firstFragment);
+        ft.commit();
+    }
+    if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        TripDetailFragment secondFragment = new TripDetailFragment();
+        Bundle args = new Bundle();
+        args.putInt(&quot;position&quot;, TripDetailFragment.position);
+        secondFragment.setArguments(args);
+        FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
+        ft2.add(R.id.flContainer2, secondFragment);
+        ft2.commit();
+        ListTripFragment firstFragment = new ListTripFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.flContainer, // replace flContainer
+        firstFragment).commit();
+    }
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FjDToPieEei0EZK9sH0UcA" name="onTripItemSelected" specification="_FjCskPieEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    TripDetailFragment secondFragment = new TripDetailFragment();
+    TripDetailFragment.position = position;
+    Bundle args = new Bundle();
+    args.putInt(&quot;position&quot;, position);
+    secondFragment.setArguments(args);
+    if (this.getApplication().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        //mode paysage
+        getSupportFragmentManager().beginTransaction().replace(R.id.flContainer2, // replace flContainer2
+        secondFragment).commit();
+    } else {
+        getSupportFragmentManager().beginTransaction().replace(R.id.flContainer, // replace flContainer
+        secondFragment).addToBackStack(null).commit();
+    }
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_FjCFgPieEei0EZK9sH0UcA" name="onCreate" visibility="protected" method="_FjCFgvieEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_FjCFgfieEei0EZK9sH0UcA" name="savedInstanceState" type="_jeheUvidEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_FjCskPieEei0EZK9sH0UcA" name="onTripItemSelected" visibility="public" method="_FjDToPieEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_FjCskfieEei0EZK9sH0UcA" name="position">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                      </ownedParameter>
+                    </ownedOperation>
+                  </packagedElement>
+                </packagedElement>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Package" xmi:id="_dhIdYPieEei0EZK9sH0UcA" name="adapters">
+                <packagedElement xmi:type="uml:Class" xmi:id="_dhIdYfieEei0EZK9sH0UcA" name="ImagesAdapter" visibility="public">
+                  <generalization xmi:type="uml:Generalization" xmi:id="_dhKSkfieEei0EZK9sH0UcA" general="_dhJEcPieEei0EZK9sH0UcA"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_dhLgsfieEei0EZK9sH0UcA" name="listUri" visibility="private" type="_dhKSk_ieEei0EZK9sH0UcA" isUnique="false">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dhLgsvieEei0EZK9sH0UcA"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dhLgs_ieEei0EZK9sH0UcA" value="*"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_dhNV4PieEei0EZK9sH0UcA" name="listBitMap" visibility="private" type="_dhMHwPieEei0EZK9sH0UcA" isUnique="false">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dhNV4fieEei0EZK9sH0UcA"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dhNV4vieEei0EZK9sH0UcA" value="*"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_dhNV4_ieEei0EZK9sH0UcA" name="tripID" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_dhNV5PieEei0EZK9sH0UcA" name="mContext" visibility="private" type="_13KCg_idEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_dhN88PieEei0EZK9sH0UcA" name="mReposistory" visibility="private" type="_jetrkfidEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dhPLEvieEei0EZK9sH0UcA" name="ImagesAdapter" specification="_dhN88fieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    this.mContext = c;
+    this.tripID = tripID;
+    mReposistory = new NoteRepository(null);
+    listBitMap = new ArrayList&lt;>();
+    getAllUri();
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dhPyIfieEei0EZK9sH0UcA" name="getCount" specification="_dhPLE_ieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return listUri.length;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dhRAQfieEei0EZK9sH0UcA" name="getItem" specification="_dhPyIvieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return null;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dhRARfieEei0EZK9sH0UcA" name="getItemId" specification="_dhRAQvieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return 0;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dhTcg_ieEei0EZK9sH0UcA" name="getView" specification="_dhS1cfieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    ImageView imageView;
+    if (convertView == null) {
+        imageView = new ImageView(mContext);
+        imageView.setLayoutParams(new GridView.LayoutParams(100, 100));
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        imageView.setPadding(8, 8, 8, 8);
+    } else {
+        imageView = (ImageView) convertView;
+    }
+    try {
+        Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.mContext.getContentResolver(), this.listUri[position]);
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, out);
+        byte[] byteArray = out.toByteArray();
+        Bitmap compressedBitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        imageView.setImageBitmap(compressedBitmap);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    return imageView;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dhTchfieEei0EZK9sH0UcA" name="getAllUri" specification="_dhTchPieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    List&lt;PictureNote> listImg = mReposistory.getPicturesNoteWithIdTrip(this.tripID);
+    List&lt;Uri> listUri = new ArrayList&lt;>();
+    for (int i = 0; i &lt; listImg.size(); i++) {
+        listUri.add(listImg.get(i).getUri());
+    }
+    this.listUri = new Uri[listUri.size()];
+    this.listUri = listUri.toArray(this.listUri);
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_dhN88fieEei0EZK9sH0UcA" name="ImagesAdapter" visibility="public" method="_dhPLEvieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_dhPLEPieEei0EZK9sH0UcA" name="c" type="_13KCg_idEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_dhPLEfieEei0EZK9sH0UcA" name="tripID" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_dhPLE_ieEei0EZK9sH0UcA" name="getCount" visibility="public" method="_dhPyIfieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_dhPyIPieEei0EZK9sH0UcA" direction="return">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_dhPyIvieEei0EZK9sH0UcA" name="getItem" visibility="public" method="_dhRAQfieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_dhQZMfieEei0EZK9sH0UcA" type="_dhPyI_ieEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_dhRAQPieEei0EZK9sH0UcA" name="position">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_dhRAQvieEei0EZK9sH0UcA" name="getItemId" visibility="public" method="_dhRARfieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_dhRAQ_ieEei0EZK9sH0UcA" direction="return">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_dhRARPieEei0EZK9sH0UcA" name="position">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_dhS1cfieEei0EZK9sH0UcA" name="getView" visibility="public" method="_dhTcg_ieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_dhS1cvieEei0EZK9sH0UcA" type="_dhRnUfieEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_dhTcgPieEei0EZK9sH0UcA" name="position">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_dhTcgfieEei0EZK9sH0UcA" name="convertView" type="_dhRnUfieEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_dhTcgvieEei0EZK9sH0UcA" name="parent" type="_dhSOYfieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_dhTchPieEei0EZK9sH0UcA" name="getAllUri" visibility="public" method="_dhTchfieEei0EZK9sH0UcA"/>
+                </packagedElement>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Package" xmi:id="_iw9YQPieEei0EZK9sH0UcA" name="dataBase">
+                <packagedElement xmi:type="uml:Interface" xmi:id="_iw9_UPieEei0EZK9sH0UcA" name="NoteDao" visibility="public">
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_iw_NcfieEei0EZK9sH0UcA" name="insertImgNote" visibility="private">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_iw_0gPieEei0EZK9sH0UcA" name="note" type="_iw9_UvieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_ixAbkfieEei0EZK9sH0UcA" name="insertTxtNote" visibility="private">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_ixBCoPieEei0EZK9sH0UcA" name="note" type="_iw_0gfieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_ixBCofieEei0EZK9sH0UcA" name="updateTxNote" visibility="private">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_ixBCovieEei0EZK9sH0UcA" name="note" type="_iw_0gfieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_ixCQwfieEei0EZK9sH0UcA" name="updateImgNote" visibility="private">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_ixCQwvieEei0EZK9sH0UcA" name="note" type="_iw9_UvieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_ixDe4PieEei0EZK9sH0UcA" name="getAllNotes" visibility="private">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_ixEF8fieEei0EZK9sH0UcA" type="_ixDe4fieEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_ixEtAPieEei0EZK9sH0UcA" name="findNoteForTrip" visibility="private">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_ixEtAfieEei0EZK9sH0UcA" type="_iw_0gfieEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_ixEtAvieEei0EZK9sH0UcA" name="tripId" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_ixEtA_ieEei0EZK9sH0UcA" name="getPicturesNoteWithIdTrip" visibility="private">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_ixEtBPieEei0EZK9sH0UcA" type="_iw9_UvieEei0EZK9sH0UcA" direction="return">
+                      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ixFUEPieEei0EZK9sH0UcA"/>
+                      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ixFUEfieEei0EZK9sH0UcA" value="*"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_ixFUEvieEei0EZK9sH0UcA" name="tripId" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_ixFUE_ieEei0EZK9sH0UcA" name="deleteAll" visibility="private"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_ixF7IPieEei0EZK9sH0UcA" name="TripRoomDatabase" visibility="public" isAbstract="true">
+                  <generalization xmi:type="uml:Generalization" xmi:id="_ixGiMfieEei0EZK9sH0UcA" general="_ixF7I_ieEei0EZK9sH0UcA"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_ixHJRPieEei0EZK9sH0UcA" name="INSTANCE" visibility="private" isStatic="true" type="_ixF7IPieEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ixI-cfieEei0EZK9sH0UcA" name="getDatabase" specification="_ixHwUfieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    if (INSTANCE == null) {
+        synchronized (TripRoomDatabase.class) {
+            if (INSTANCE == null) {
+                INSTANCE = Room.databaseBuilder(context.getApplicationContext(), TripRoomDatabase.class, &quot;trip_database&quot;).fallbackToDestructiveMigration().build();
+            }
+        }
+    }
+    return INSTANCE;
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_ixGiMvieEei0EZK9sH0UcA" name="TripDao" visibility="public" isAbstract="true">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_ixHJQfieEei0EZK9sH0UcA" type="_iyvg8PieEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_ixHJQvieEei0EZK9sH0UcA" name="NoteDao" visibility="public" isAbstract="true">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_ixHJQ_ieEei0EZK9sH0UcA" type="_iw9_UPieEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_ixHwUfieEei0EZK9sH0UcA" name="getDatabase" visibility="public" isStatic="true" method="_ixI-cfieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_ixIXYPieEei0EZK9sH0UcA" type="_ixF7IPieEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_ixIXYfieEei0EZK9sH0UcA" name="context" type="_13KCg_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Interface" xmi:id="_iyvg8PieEei0EZK9sH0UcA" name="TripDao" visibility="public">
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_iyvg8fieEei0EZK9sH0UcA" name="getAlphabetizedTrips" visibility="private">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_iywIAPieEei0EZK9sH0UcA" type="_ixDe4fieEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_iywvEfieEei0EZK9sH0UcA" name="insert" visibility="private">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_iyxWIPieEei0EZK9sH0UcA" name="trip" type="_iywIAfieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_iyxWIfieEei0EZK9sH0UcA" name="update" visibility="private">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_iyxWIvieEei0EZK9sH0UcA" name="trip" type="_iywIAfieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_iyx9MfieEei0EZK9sH0UcA" name="delete" visibility="private">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_iyx9MvieEei0EZK9sH0UcA" name="trip" type="_iywIAfieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_iyx9M_ieEei0EZK9sH0UcA" name="findTripWithId" visibility="private">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_iyykQPieEei0EZK9sH0UcA" type="_iywIAfieEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_iyykQfieEei0EZK9sH0UcA" name="tripId" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_iyykQvieEei0EZK9sH0UcA" name="deleteAll" visibility="private"/>
+                </packagedElement>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Package" xmi:id="_4BGVEPieEei0EZK9sH0UcA" name="entities">
+                <packagedElement xmi:type="uml:Class" xmi:id="_4BIKQPieEei0EZK9sH0UcA" name="Trip" visibility="public">
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_4BIxUPieEei0EZK9sH0UcA" name="uniqueID" visibility="public" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_4BIxUfieEei0EZK9sH0UcA" name="continents" visibility="public" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_4BIxUvieEei0EZK9sH0UcA" name="country" visibility="public" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_4BIxU_ieEei0EZK9sH0UcA" name="city" visibility="public" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_4BIxVPieEei0EZK9sH0UcA" name="title" visibility="public" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BJYYvieEei0EZK9sH0UcA" name="getUniqueID" specification="_4BJYYPieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return this.uniqueID;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BKmgfieEei0EZK9sH0UcA" name="Trip" specification="_4BJYY_ieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    this.uniqueID = uniqueID;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BLNkfieEei0EZK9sH0UcA" name="getTitle" specification="_4BKmgvieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return this.title;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BLNlPieEei0EZK9sH0UcA" name="getCity" specification="_4BLNkvieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return this.city;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BL0ofieEei0EZK9sH0UcA" name="setCity" specification="_4BLNlfieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    this.city = city;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BL0pPieEei0EZK9sH0UcA" name="getCountry" specification="_4BL0ovieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return this.country;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BMbsPieEei0EZK9sH0UcA" name="setCountry" specification="_4BL0pfieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    this.country = country;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BMbs_ieEei0EZK9sH0UcA" name="getContinents" specification="_4BMbsfieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return this.continents;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BNCwvieEei0EZK9sH0UcA" name="setContinents" specification="_4BNCwPieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    this.continents = continents;
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BJYYPieEei0EZK9sH0UcA" name="getUniqueID" visibility="public" method="_4BJYYvieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BJYYfieEei0EZK9sH0UcA" type="_jekho_idEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BJYY_ieEei0EZK9sH0UcA" name="Trip" visibility="public" method="_4BKmgfieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BKmgPieEei0EZK9sH0UcA" name="uniqueID" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BKmgvieEei0EZK9sH0UcA" name="getTitle" visibility="public" method="_4BLNkfieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BLNkPieEei0EZK9sH0UcA" type="_jekho_idEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BLNkvieEei0EZK9sH0UcA" name="getCity" visibility="public" method="_4BLNlPieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BLNk_ieEei0EZK9sH0UcA" type="_jekho_idEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BLNlfieEei0EZK9sH0UcA" name="setCity" visibility="public" method="_4BL0ofieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BL0oPieEei0EZK9sH0UcA" name="city" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BL0ovieEei0EZK9sH0UcA" name="getCountry" visibility="public" method="_4BL0pPieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BL0o_ieEei0EZK9sH0UcA" type="_jekho_idEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BL0pfieEei0EZK9sH0UcA" name="setCountry" visibility="public" method="_4BMbsPieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BL0pvieEei0EZK9sH0UcA" name="country" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BMbsfieEei0EZK9sH0UcA" name="getContinents" visibility="public" method="_4BMbs_ieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BMbsvieEei0EZK9sH0UcA" type="_jekho_idEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BNCwPieEei0EZK9sH0UcA" name="setContinents" visibility="public" method="_4BNCwvieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BNCwfieEei0EZK9sH0UcA" name="continents" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_4BNp0PieEei0EZK9sH0UcA" name="TxtNote" visibility="public">
+                  <generalization xmi:type="uml:Generalization" xmi:id="_4BNp0vieEei0EZK9sH0UcA" general="_4BNp0fieEei0EZK9sH0UcA"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_4BOQ4PieEei0EZK9sH0UcA" name="text" visibility="public" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BPfAPieEei0EZK9sH0UcA" name="TxtNote" specification="_4BOQ4fieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    super(id, tripId);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BPfA_ieEei0EZK9sH0UcA" name="getText" specification="_4BPfAfieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return text;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BPfBvieEei0EZK9sH0UcA" name="setText" specification="_4BPfBPieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    this.text = text;
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BOQ4fieEei0EZK9sH0UcA" name="TxtNote" visibility="public" method="_4BPfAPieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BO38fieEei0EZK9sH0UcA" name="id" type="_jekho_idEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BO38vieEei0EZK9sH0UcA" name="tripId" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BPfAfieEei0EZK9sH0UcA" name="getText" visibility="public" method="_4BPfA_ieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BPfAvieEei0EZK9sH0UcA" type="_jekho_idEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BPfBPieEei0EZK9sH0UcA" name="setText" visibility="public" method="_4BPfBvieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BPfBfieEei0EZK9sH0UcA" name="text" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_4BNp0fieEei0EZK9sH0UcA" name="Note" visibility="public">
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_4BQGEPieEei0EZK9sH0UcA" name="id" visibility="public" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_4BQGEfieEei0EZK9sH0UcA" name="tripId" visibility="public" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_4BQtIPieEei0EZK9sH0UcA" name="type" visibility="public" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BRUM_ieEei0EZK9sH0UcA" name="Note" specification="_4BQtIfieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    this.id = id;
+    this.tripId = tripId;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BR7QvieEei0EZK9sH0UcA" name="setId" specification="_4BR7QPieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    this.id = id;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BR7RfieEei0EZK9sH0UcA" name="getId" specification="_4BR7Q_ieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return this.id;
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BQtIfieEei0EZK9sH0UcA" name="Note" visibility="public" method="_4BRUM_ieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BRUMfieEei0EZK9sH0UcA" name="id" type="_jekho_idEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BRUMvieEei0EZK9sH0UcA" name="tripId" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BR7QPieEei0EZK9sH0UcA" name="setId" visibility="public" method="_4BR7QvieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BR7QfieEei0EZK9sH0UcA" name="id" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BR7Q_ieEei0EZK9sH0UcA" name="getId" visibility="public" method="_4BR7RfieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BR7RPieEei0EZK9sH0UcA" type="_jekho_idEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_4BTJYPieEei0EZK9sH0UcA" name="PictureNote" visibility="public">
+                  <generalization xmi:type="uml:Generalization" xmi:id="_4BTJYfieEei0EZK9sH0UcA" general="_4BNp0fieEei0EZK9sH0UcA"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_4BTwcPieEei0EZK9sH0UcA" name="uri" visibility="public" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BVlovieEei0EZK9sH0UcA" name="PictureNote" specification="_4BUXgPieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    super(id, tripId);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BWMsfieEei0EZK9sH0UcA" name="setUri" specification="_4BVlo_ieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    this.uri = uri;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4BWMtPieEei0EZK9sH0UcA" name="getUri" specification="_4BWMsvieEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return Uri.fromFile(new File(this.uri));
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BUXgPieEei0EZK9sH0UcA" name="PictureNote" visibility="public" method="_4BVlovieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BVloPieEei0EZK9sH0UcA" name="id" type="_jekho_idEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BVlofieEei0EZK9sH0UcA" name="tripId" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BVlo_ieEei0EZK9sH0UcA" name="setUri" visibility="public" method="_4BWMsfieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BWMsPieEei0EZK9sH0UcA" name="uri" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_4BWMsvieEei0EZK9sH0UcA" name="getUri" visibility="public" method="_4BWMtPieEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BWMs_ieEei0EZK9sH0UcA" type="_dhKSk_ieEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                </packagedElement>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Package" xmi:id="_MQXqwPifEei0EZK9sH0UcA" name="fragments">
+                <packagedElement xmi:type="uml:Class" xmi:id="_txAv4PifEei0EZK9sH0UcA" name="ListTripFragment" visibility="public">
+                  <generalization xmi:type="uml:Generalization" xmi:id="_txAv4fifEei0EZK9sH0UcA" general="_MQbVIPifEei0EZK9sH0UcA"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_txBW8fifEei0EZK9sH0UcA" name="itemsAdapter" visibility="public" isStatic="true" type="_MQsa4fifEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_txB-APifEei0EZK9sH0UcA" name="idsAdapter" visibility="public" isStatic="true" type="_MQsa4fifEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_txDMIfifEei0EZK9sH0UcA" name="mViewModel" visibility="private" type="_txB-AfifEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_txEaRPifEei0EZK9sH0UcA" name="listener" visibility="private" type="_tyqVsPifEei0EZK9sH0UcA" isUnique="false"/>
+                  <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_txBW8PifEei0EZK9sH0UcA" name="ListTripFragment implements OnCreateContextMenuListener" client="_txAv4PifEei0EZK9sH0UcA" supplier="_MQrMwvifEei0EZK9sH0UcA" contract="_MQrMwvifEei0EZK9sH0UcA"/>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_txDzMfifEei0EZK9sH0UcA" name="onCreate" specification="_txDMIvifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    super.onCreate(savedInstanceState);
+    mViewModel = ViewModelProviders.of(this).get(ListTripFragmentViewModel.class);
+    idsAdapter = new ArrayAdapter&lt;>(getContext(), android.R.layout.simple_list_item_1, mViewModel.getListIdOfTrips());
+    itemsAdapter = new ArrayAdapter&lt;>(getContext(), android.R.layout.simple_list_item_1, mViewModel.getListAllTitles(getActivity()));
+    itemsAdapter.notifyDataSetChanged();
+    mViewModel.observeListTrip(getActivity());
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_txEaQ_ifEei0EZK9sH0UcA" name="onCreateView" specification="_txDzMvifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return inflater.inflate(R.layout.fragment_list_trip, parent, false);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_txFBU_ifEei0EZK9sH0UcA" name="onViewCreated" specification="_txFBUPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    final ListView lvItems = view.findViewById(R.id.lvItems);
+    registerForContextMenu(lvItems);
+    lvItems.setAdapter(itemsAdapter);
+    if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        //long click change trip selectionned when Orientation is landscape
+        lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+            @Override
+            public boolean onItemLongClick(AdapterView&lt;?> arg0, View arg1, int pos, long id) {
+                listener.onTripItemSelected(pos);
+                return false;
+            }
+        });
+    }
+    lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        @Override
+        public void onItemClick(AdapterView&lt;?> parent, View view, int position, long id) {
+            listener.onTripItemSelected(position);
+        }
+    });
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_txFoY_ifEei0EZK9sH0UcA" name="onCreateContextMenu" specification="_txFBVPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    super.onCreateContextMenu(menu, v, menuInfo);
+    MenuInflater inflater = this.getActivity().getMenuInflater();
+    inflater.inflate(R.menu.menu, menu);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_txGPcfifEei0EZK9sH0UcA" name="onContextItemSelected" specification="_txFoZPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+    Trip trip = mViewModel.getTrip(idsAdapter.getItem(info.position));
+    switch(item.getItemId()) {
+        case R.id.delete:
+            if (info.position == mViewModel.sizeOfListTrips() - 1) {
+                TripDetailFragment.position = info.position - 1;
+            }
+            mViewModel.deleteTrip(trip);
+            return true;
+        case R.id.exporter:
+            exportTrip(trip);
+            Toast.makeText(this.getActivity(), &quot;Le voyage &quot; + trip.title + &quot; est enregistré dans le dossier téléchargement&quot;, Toast.LENGTH_SHORT).show();
+            return true;
+        default:
+            return super.onContextItemSelected(item);
+    }
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_txG2gPifEei0EZK9sH0UcA" name="exportTrip" specification="_txGPcvifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    final Gson gson = new GsonBuilder().create();
+    String json = gson.toJson(trip);
+    json += gson.toJson(mViewModel.getListNotesWithId(trip.getUniqueID()));
+    File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), trip.title + &quot;_&quot; + new SimpleDateFormat(&quot;yyyy-MM-dd_HH-mm-ss&quot;, Locale.getDefault()).format(new Date()) + &quot;.cv&quot;);
+    try {
+        file.createNewFile();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    FileOutputStream stream = null;
+    try {
+        stream = new FileOutputStream(file);
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    }
+    try {
+        stream.write(json.getBytes());
+        stream.close();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_txG2g_ifEei0EZK9sH0UcA" name="onAttach" specification="_txG2gfifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    super.onAttach(context);
+    if (context instanceof OnItemSelectedListener) {
+        this.listener = (OnItemSelectedListener) context;
+    } else {
+        throw new ClassCastException(//listTrip
+        context.toString() + &quot; must implement ListTripFragment.OnItemSelectedListener&quot;);
+    }
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_txDMIvifEei0EZK9sH0UcA" name="onCreate" visibility="public" method="_txDzMfifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txDzMPifEei0EZK9sH0UcA" name="savedInstanceState" type="_jeheUvidEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_txDzMvifEei0EZK9sH0UcA" name="onCreateView" visibility="public" method="_txEaQ_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txDzM_ifEei0EZK9sH0UcA" type="_dhRnUfieEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txEaQPifEei0EZK9sH0UcA" name="inflater" type="_MQiC0PifEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txEaQfifEei0EZK9sH0UcA" name="parent" type="_dhSOYfieEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txEaQvifEei0EZK9sH0UcA" name="savedInstanceState" type="_jeheUvidEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_txFBUPifEei0EZK9sH0UcA" name="onViewCreated" visibility="public" method="_txFBU_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txFBUfifEei0EZK9sH0UcA" name="view" type="_dhRnUfieEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txFBUvifEei0EZK9sH0UcA" name="savedInstanceState" type="_jeheUvidEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_txFBVPifEei0EZK9sH0UcA" name="onCreateContextMenu" visibility="public" method="_txFoY_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txFoYPifEei0EZK9sH0UcA" name="menu" type="_MQwsU_ifEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txFoYfifEei0EZK9sH0UcA" name="v" type="_dhRnUfieEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txFoYvifEei0EZK9sH0UcA" name="menuInfo" type="_MQx6cfifEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_txFoZPifEei0EZK9sH0UcA" name="onContextItemSelected" visibility="public" method="_txGPcfifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txFoZfifEei0EZK9sH0UcA" direction="return">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txGPcPifEei0EZK9sH0UcA" name="item" type="_MQzvoPifEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_txGPcvifEei0EZK9sH0UcA" name="exportTrip" visibility="public" method="_txG2gPifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txGPc_ifEei0EZK9sH0UcA" name="trip" type="_4BIKQPieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_txG2gfifEei0EZK9sH0UcA" name="onAttach" visibility="public" method="_txG2g_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_txG2gvifEei0EZK9sH0UcA" name="context" type="_13KCg_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <nestedClassifier xmi:type="uml:Interface" xmi:id="_tyqVsPifEei0EZK9sH0UcA" name="OnItemSelectedListener" visibility="public">
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="_tyq8wPifEei0EZK9sH0UcA" name="onTripItemSelected" visibility="private">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="_tyq8wfifEei0EZK9sH0UcA" name="position">
+                        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                      </ownedParameter>
+                    </ownedOperation>
+                  </nestedClassifier>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_txB-AfifEei0EZK9sH0UcA" name="ListTripFragmentViewModel" visibility="public">
+                  <generalization xmi:type="uml:Generalization" xmi:id="_vBsUoPifEei0EZK9sH0UcA" general="_jepaIvidEei0EZK9sH0UcA"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_vBs7sPifEei0EZK9sH0UcA" name="mTripRepository" visibility="private" type="_jesdcPidEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_vBtiwPifEei0EZK9sH0UcA" name="mNoteRepository" visibility="private" type="_jetrkfidEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_vBvX8PifEei0EZK9sH0UcA" name="ListTripFragmentViewModel" specification="_vBtiwfifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    super(application);
+    mTripRepository = TripRepository.getInstance(application);
+    mNoteRepository = NoteRepository.getInstance(application);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_vBv_A_ifEei0EZK9sH0UcA" name="getListIdOfTrips" specification="_vBvX8fifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    List&lt;String> listID = new ArrayList&lt;>();
+    List&lt;Trip> listTrip = mTripRepository.getAllTrips().getValue();
+    for (int i = 0; i &lt; listTrip.size(); i++) {
+        listID.add(listTrip.get(i).getUniqueID());
+    }
+    return listID;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_vBwmFPifEei0EZK9sH0UcA" name="getListAllTitles" specification="_vBv_BPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    List&lt;String> listTitles = new ArrayList&lt;>();
+    List&lt;Trip> listTrip = mTripRepository.getAllTrips().getValue();
+    for (int i = 0; i &lt; listTrip.size(); i++) {
+        listTitles.add(listTrip.get(i).getTitle());
+    }
+    return listTitles;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_vBxNIvifEei0EZK9sH0UcA" name="observeListTrip" specification="_vBxNIPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    mTripRepository.getAllTrips().observe(activity, new Observer&lt;List&lt;Trip>>() {
+
+        @Override
+        public void onChanged(@Nullable final List&lt;Trip> trips) {
+            // Update the cached copy of the words in the adapter.
+            if (ListTripFragment.itemsAdapter != null &amp;&amp; ListTripFragment.idsAdapter != null) {
+                ListTripFragment.idsAdapter.clear();
+                ListTripFragment.itemsAdapter.clear();
+                for (int i = 0; i &lt; trips.size(); i++) {
+                    ListTripFragment.idsAdapter.add(trips.get(i).uniqueID);
+                    ListTripFragment.itemsAdapter.add(trips.get(i).title);
+                }
+            }
+        }
+    });
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_vBx0M_ifEei0EZK9sH0UcA" name="getTrip" specification="_vBx0MPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return mTripRepository.getTripWithId(id);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_vBybQ_ifEei0EZK9sH0UcA" name="getListNotesWithId" specification="_vBybQPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return mNoteRepository.getListNoteWithIdTrip(id);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_vBzCUvifEei0EZK9sH0UcA" name="sizeOfListTrips" specification="_vBzCUPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return mTripRepository.getAllTrips().getValue().size();
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_vBzpYfifEei0EZK9sH0UcA" name="deleteTrip" specification="_vBzCU_ifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    mTripRepository.delete(trip);
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_vBtiwfifEei0EZK9sH0UcA" name="ListTripFragmentViewModel" visibility="public" method="_vBvX8PifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_vBuw4fifEei0EZK9sH0UcA" name="application" type="_jevgwPidEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_vBvX8fifEei0EZK9sH0UcA" name="getListIdOfTrips" visibility="public" method="_vBv_A_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_vBv_APifEei0EZK9sH0UcA" type="_jekho_idEei0EZK9sH0UcA" direction="return">
+                      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vBv_AfifEei0EZK9sH0UcA"/>
+                      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vBv_AvifEei0EZK9sH0UcA" value="*"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_vBv_BPifEei0EZK9sH0UcA" name="getListAllTitles" visibility="public" method="_vBwmFPifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_vBwmEPifEei0EZK9sH0UcA" type="_jekho_idEei0EZK9sH0UcA" direction="return">
+                      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vBwmEfifEei0EZK9sH0UcA"/>
+                      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vBwmEvifEei0EZK9sH0UcA" value="*"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_vBwmE_ifEei0EZK9sH0UcA" name="activity" type="_jezLI_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_vBxNIPifEei0EZK9sH0UcA" name="observeListTrip" visibility="public" method="_vBxNIvifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_vBxNIfifEei0EZK9sH0UcA" name="activity" type="_jezLI_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_vBx0MPifEei0EZK9sH0UcA" name="getTrip" visibility="public" method="_vBx0M_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_vBx0MfifEei0EZK9sH0UcA" type="_4BIKQPieEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_vBx0MvifEei0EZK9sH0UcA" name="id" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_vBybQPifEei0EZK9sH0UcA" name="getListNotesWithId" visibility="public" method="_vBybQ_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_vBybQfifEei0EZK9sH0UcA" type="_4BNp0PieEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_vBybQvifEei0EZK9sH0UcA" name="id" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_vBzCUPifEei0EZK9sH0UcA" name="sizeOfListTrips" visibility="public" method="_vBzCUvifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_vBzCUfifEei0EZK9sH0UcA" direction="return">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_vBzCU_ifEei0EZK9sH0UcA" name="deleteTrip" visibility="public" method="_vBzpYfifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_vBzpYPifEei0EZK9sH0UcA" name="trip" type="_4BIKQPieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_w9B_9_ifEei0EZK9sH0UcA" name="TripDetailFragmentViewModel" visibility="public">
+                  <generalization xmi:type="uml:Generalization" xmi:id="_yznuIPifEei0EZK9sH0UcA" general="_jepaIvidEei0EZK9sH0UcA"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_yzoVMPifEei0EZK9sH0UcA" name="mTripRepository" visibility="private" type="_jesdcPidEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_yzo8QPifEei0EZK9sH0UcA" name="mNoteRepository" visibility="private" type="_jetrkfidEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yzr_kfifEei0EZK9sH0UcA" name="TripDetailFragmentViewModel" specification="_yzo8QfifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    super(application);
+    mTripRepository = TripRepository.getInstance(application);
+    mNoteRepository = NoteRepository.getInstance(application);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yztNsfifEei0EZK9sH0UcA" name="getTripWithID" specification="_yzsmoPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return mTripRepository.getTripWithId(id);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yztNtPifEei0EZK9sH0UcA" name="getmTripRepository" specification="_yztNsvifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return mTripRepository;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yzt0w_ifEei0EZK9sH0UcA" name="getTxtNoteWithIdTrip" specification="_yzt0wPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return mNoteRepository.getListNoteWithIdTrip(idTrip);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yzub0_ifEei0EZK9sH0UcA" name="insertPictureNote" specification="_yzub0PifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    PictureNote pictureNote = new PictureNote(UUID.randomUUID().toString(), idTrip);
+    pictureNote.setUri(uri);
+    mNoteRepository.insertPictureNote(pictureNote);
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_yzo8QfifEei0EZK9sH0UcA" name="TripDetailFragmentViewModel" visibility="public" method="_yzr_kfifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_yzr_kPifEei0EZK9sH0UcA" name="application" type="_jevgwPidEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_yzsmoPifEei0EZK9sH0UcA" name="getTripWithID" visibility="public" method="_yztNsfifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_yzsmofifEei0EZK9sH0UcA" type="_4BIKQPieEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_yztNsPifEei0EZK9sH0UcA" name="id" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_yztNsvifEei0EZK9sH0UcA" name="getmTripRepository" visibility="public" method="_yztNtPifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_yztNs_ifEei0EZK9sH0UcA" type="_jesdcPidEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_yzt0wPifEei0EZK9sH0UcA" name="getTxtNoteWithIdTrip" visibility="public" method="_yzt0w_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_yzt0wfifEei0EZK9sH0UcA" type="_4BNp0PieEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_yzt0wvifEei0EZK9sH0UcA" name="idTrip" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_yzub0PifEei0EZK9sH0UcA" name="insertPictureNote" visibility="public" method="_yzub0_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_yzub0fifEei0EZK9sH0UcA" name="idTrip" type="_jekho_idEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_yzub0vifEei0EZK9sH0UcA" name="uri" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_w9AKwPifEei0EZK9sH0UcA" name="TripDetailFragment" visibility="public">
+                  <generalization xmi:type="uml:Generalization" xmi:id="_w9Ax0PifEei0EZK9sH0UcA" general="_MQbVIPifEei0EZK9sH0UcA"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9Ax0fifEei0EZK9sH0UcA" name="position" visibility="public" isStatic="true" isUnique="false">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_w9Ax0vifEei0EZK9sH0UcA" name="defaultValue">
+                      <language>JAVA</language>
+                      <body>0</body>
+                    </defaultValue>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9BY4PifEei0EZK9sH0UcA" name="EXTRA_REPLY_CONTRY" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                    <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_w9BY4fifEei0EZK9sH0UcA" name="defaultValue">
+                      <language>JAVA</language>
+                      <body>&quot;com.example.android.UpdateTripActivity.COUNTRY&quot;</body>
+                    </defaultValue>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9BY4vifEei0EZK9sH0UcA" name="EXTRA_REPLY_TITLE" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                    <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_w9BY4_ifEei0EZK9sH0UcA" name="defaultValue">
+                      <language>JAVA</language>
+                      <body>&quot;com.example.android.UpdateTripActivity.TITLE&quot;</body>
+                    </defaultValue>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9BY5PifEei0EZK9sH0UcA" name="EXTRA_REPLY_CONTINENTS" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                    <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_w9BY5fifEei0EZK9sH0UcA" name="defaultValue">
+                      <language>JAVA</language>
+                      <body>&quot;com.example.android.UpdateTripActivity.CONTINENTS&quot;</body>
+                    </defaultValue>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9BY5vifEei0EZK9sH0UcA" name="EXTRA_REPLY_CITY" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                    <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_w9B_8PifEei0EZK9sH0UcA" name="defaultValue">
+                      <language>JAVA</language>
+                      <body>&quot;com.example.android.UpdateTripActivity.CITY&quot;</body>
+                    </defaultValue>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9B_8fifEei0EZK9sH0UcA" name="EXTRA_REPLY_ID" visibility="public" isLeaf="true" isStatic="true" type="_jekho_idEei0EZK9sH0UcA" isUnique="false">
+                    <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_w9B_8vifEei0EZK9sH0UcA" name="defaultValue">
+                      <language>JAVA</language>
+                      <body>&quot;com.example.android.UpdateTripActivity.ID&quot;</body>
+                    </defaultValue>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9B_8_ifEei0EZK9sH0UcA" name="UPDATE_TRIP_ACTIVITY_REQUEST_CODE" visibility="public" isLeaf="true" isStatic="true" isUnique="false">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_w9B_9PifEei0EZK9sH0UcA" name="defaultValue">
+                      <language>JAVA</language>
+                      <body>2</body>
+                    </defaultValue>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9B_9fifEei0EZK9sH0UcA" name="ADD_PICTURE" visibility="public" isLeaf="true" isStatic="true" isUnique="false">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_w9B_9vifEei0EZK9sH0UcA" name="defaultValue">
+                      <language>JAVA</language>
+                      <body>3</body>
+                    </defaultValue>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9DOEfifEei0EZK9sH0UcA" name="mViewModel" visibility="private" type="_w9B_9_ifEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9DOEvifEei0EZK9sH0UcA" name="tripTitleTv" visibility="private" type="_MQeYcfifEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9D1IPifEei0EZK9sH0UcA" name="tripCountryTv" visibility="private" type="_MQeYcfifEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9D1IfifEei0EZK9sH0UcA" name="tripCityTv" visibility="private" type="_MQeYcfifEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9D1IvifEei0EZK9sH0UcA" name="tripContinentTv" visibility="private" type="_MQeYcfifEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9D1I_ifEei0EZK9sH0UcA" name="txtNoteTv" visibility="private" type="_MQeYcfifEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_w9D1JPifEei0EZK9sH0UcA" name="id" visibility="private" type="_jekho_idEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_w9FDQfifEei0EZK9sH0UcA" name="onCreate" specification="_w9D1JfifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    super.onCreate(savedInstanceState);
+    mViewModel = ViewModelProviders.of(this).get(TripDetailFragmentViewModel.class);
+    if (savedInstanceState == null) {
+        if (getArguments() != null) {
+            position = getArguments().getInt(&quot;position&quot;, 0);
+        }
+    }
+    if (!ListTripFragment.idsAdapter.isEmpty()) {
+        //if list trip is empty we can't find any id
+        id = ListTripFragment.idsAdapter.getItem(position);
+    }
+    mViewModel.getmTripRepository().getAllTrips().observe(this, new Observer&lt;List&lt;Trip>>() {
+
+        @Override
+        public void onChanged(@Nullable final List&lt;Trip> trips) {
+            if (mViewModel.getmTripRepository().getAllTrips().getValue().size() > 0)
+                //show detail of another trip
+                onViewCreated(getView(), savedInstanceState);
+            else {
+                //when list of trips is empty
+                tripTitleTv = getView().findViewById(R.id.tripTitle);
+                tripCountryTv = getView().findViewById(R.id.tripCountry);
+                tripCityTv = getView().findViewById(R.id.tripCity);
+                tripContinentTv = getView().findViewById(R.id.tripContinent);
+                tripTitleTv.setText(&quot;&quot;);
+                tripCountryTv.setText(&quot;&quot;);
+                tripCityTv.setText(&quot;&quot;);
+                tripContinentTv.setText(&quot;&quot;);
+                txtNoteTv.setText(&quot;&quot;);
+                Button buttonUpdate = getActivity().findViewById(R.id.boutonUpdate);
+                if (buttonUpdate != null) {
+                    //make button invisible
+                    buttonUpdate.setVisibility(View.INVISIBLE);
+                }
+            }
+        }
+    });
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_w9FqU_ifEei0EZK9sH0UcA" name="onCreateView" specification="_w9FDQvifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    // Inflate the xml file for the fragment
+    return inflater.inflate(R.layout.fragment_detail_trip, parent, false);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_w9GRYfifEei0EZK9sH0UcA" name="onViewCreated" specification="_w9FqVPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    Button buttonUpdate = view.findViewById(R.id.boutonUpdate);
+    buttonUpdate.setOnClickListener(new View.OnClickListener() {
+
+        public void onClick(View view) {
+            onClickSendDataToUpdateTrip();
+        }
+    });
+    Button buttonTakePicture = view.findViewById(R.id.add_picture);
+    buttonTakePicture.setOnClickListener(new View.OnClickListener() {
+
+        public void onClick(View view) {
+            Intent intent = new Intent(getActivity(), RecordPictureActivity.class);
+            getActivity().setResult(RESULT_OK, intent);
+            startActivityForResult(intent, ADD_PICTURE);
+        }
+    });
+    GridView gridView = view.findViewById(R.id.gridview);
+    gridView.setAdapter(new ImagesAdapter(getContext(), id));
+    if (!ListTripFragment.itemsAdapter.isEmpty()) {
+        // get recents values
+        String id = ListTripFragment.idsAdapter.getItem(position);
+        tripTitleTv = view.findViewById(R.id.tripTitle);
+        tripCountryTv = view.findViewById(R.id.tripCountry);
+        tripCityTv = view.findViewById(R.id.tripCity);
+        tripContinentTv = view.findViewById(R.id.tripContinent);
+        txtNoteTv = view.findViewById(R.id.txtNote);
+        //update view
+        Trip trip = mViewModel.getTripWithID(id);
+        TxtNote mtxtNote = mViewModel.getTxtNoteWithIdTrip(id);
+        tripTitleTv.setText(trip.title);
+        tripCountryTv.setText(trip.getCountry());
+        tripCityTv.setText(trip.getCity());
+        txtNoteTv.setText(mtxtNote.getText());
+        tripContinentTv.setText(trip.getContinents());
+    }
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_w9GRY_ifEei0EZK9sH0UcA" name="onClickSendDataToUpdateTrip" specification="_w9GRYvifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    Intent intent = new Intent(getActivity(), UpdateTripActivity.class);
+    if (TextUtils.isEmpty(tripTitleTv.getText())) {
+        getActivity().setResult(RESULT_CANCELED, intent);
+    } else {
+        String title = tripTitleTv.getText().toString();
+        intent.putExtra(EXTRA_REPLY_TITLE, title);
+        intent.putExtra(EXTRA_REPLY_ID, id);
+        String city = tripCityTv.getText().toString();
+        intent.putExtra(EXTRA_REPLY_CITY, city);
+        String continents = tripContinentTv.getText().toString();
+        intent.putExtra(EXTRA_REPLY_CONTINENTS, continents);
+        String country = tripCountryTv.getText().toString();
+        intent.putExtra(EXTRA_REPLY_CONTRY, country);
+        getActivity().setResult(RESULT_OK, intent);
+    }
+    this.startActivityForResult(intent, UPDATE_TRIP_ACTIVITY_REQUEST_CODE);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_w9G4cvifEei0EZK9sH0UcA" name="onActivityResult" specification="_w9GRZPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    super.onActivityResult(requestCode, resultCode, data);
+    if (requestCode == UPDATE_TRIP_ACTIVITY_REQUEST_CODE &amp;&amp; resultCode == RESULT_OK) {
+        Trip trip = mViewModel.getTripWithID(id);
+        tripTitleTv.setText(trip.title);
+        tripCountryTv.setText(trip.getCountry());
+        tripCityTv.setText(trip.getCity());
+        tripContinentTv.setText(trip.getContinents());
+    }
+    if (requestCode == ADD_PICTURE &amp;&amp; resultCode == RESULT_OK) {
+        Log.i(&quot;zinedine&quot;, data.getStringExtra(RecordPictureActivity.EXTRA_REPLY_FILE_PATH_PICTURE));
+        mViewModel.insertPictureNote(id, data.getStringExtra(RecordPictureActivity.EXTRA_REPLY_FILE_PATH_PICTURE));
+    }
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_w9D1JfifEei0EZK9sH0UcA" name="onCreate" visibility="public" method="_w9FDQfifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_w9EcMPifEei0EZK9sH0UcA" name="savedInstanceState" type="_jeheUvidEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_w9FDQvifEei0EZK9sH0UcA" name="onCreateView" visibility="public" method="_w9FqU_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_w9FDQ_ifEei0EZK9sH0UcA" type="_dhRnUfieEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_w9FqUPifEei0EZK9sH0UcA" name="inflater" type="_MQiC0PifEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_w9FqUfifEei0EZK9sH0UcA" name="parent" type="_dhSOYfieEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_w9FqUvifEei0EZK9sH0UcA" name="savedInstanceState" type="_jeheUvidEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_w9FqVPifEei0EZK9sH0UcA" name="onViewCreated" visibility="public" method="_w9GRYfifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_w9FqVfifEei0EZK9sH0UcA" name="view" type="_dhRnUfieEei0EZK9sH0UcA"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_w9GRYPifEei0EZK9sH0UcA" name="savedInstanceState" type="_jeheUvidEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_w9GRYvifEei0EZK9sH0UcA" name="onClickSendDataToUpdateTrip" visibility="public" method="_w9GRY_ifEei0EZK9sH0UcA"/>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="_w9GRZPifEei0EZK9sH0UcA" name="onActivityResult" visibility="public" method="_w9G4cvifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_w9GRZfifEei0EZK9sH0UcA" name="requestCode">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_w9G4cPifEei0EZK9sH0UcA" name="resultCode">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_w9G4cfifEei0EZK9sH0UcA" name="data" type="_jeiscvidEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                </packagedElement>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Package" xmi:id="__zYJIPifEei0EZK9sH0UcA" name="reposistory">
+                <packagedElement xmi:type="uml:Class" xmi:id="__zYwMPifEei0EZK9sH0UcA" name="TripRepository" visibility="public">
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="__zalYPifEei0EZK9sH0UcA" name="mTripDao" visibility="private" type="_iyvg8PieEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="__zalYfifEei0EZK9sH0UcA" name="mAllTrips" visibility="private" type="_ixDe4fieEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="__zbzgfifEei0EZK9sH0UcA" name="db" visibility="private" type="_ixF7IPieEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="__zbzgvifEei0EZK9sH0UcA" name="INSTANCE" visibility="private" isStatic="true" type="__zYwMPifEei0EZK9sH0UcA" isUnique="false">
+                    <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="__zbzg_ifEei0EZK9sH0UcA" name="defaultValue">
+                      <language>JAVA</language>
+                      <body>null</body>
+                    </defaultValue>
+                  </ownedAttribute>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__zdBovifEei0EZK9sH0UcA" name="TripRepository" specification="__zbzhPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    db = TripRoomDatabase.getDatabase(application);
+    mTripDao = db.TripDao();
+    mAllTrips = mTripDao.getAlphabetizedTrips();
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__zdos_ifEei0EZK9sH0UcA" name="getInstance" specification="__zdosPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    if (INSTANCE == null) {
+        INSTANCE = new TripRepository(application);
+    }
+    return INSTANCE;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__zePwfifEei0EZK9sH0UcA" name="getAllTrips" specification="__zdotPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    return mAllTrips;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__zePxPifEei0EZK9sH0UcA" name="insert" specification="__zePwvifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    new insertAsyncTask(mTripDao).execute(trip);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__ze20vifEei0EZK9sH0UcA" name="delete" specification="__ze20PifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    new deletetAsyncTask(mTripDao).execute(trip);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__zfd4fifEei0EZK9sH0UcA" name="update" specification="__ze20_ifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    new UpdateAsyncTask(mTripDao).execute(trip);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__zfd5fifEei0EZK9sH0UcA" name="getTripWithId" specification="__zfd4vifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    try {
+        return new getTripWithIdAsyncTask(mTripDao).execute(tripID).get();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    } catch (ExecutionException e) {
+        e.printStackTrace();
+    }
+    return null;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__zgE8fifEei0EZK9sH0UcA" name="clearDataBase" specification="__zgE8PifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    new DeletAllAsyncTask(db).execute();
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__zbzhPifEei0EZK9sH0UcA" name="TripRepository" visibility="public" method="__zdBovifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__zdBofifEei0EZK9sH0UcA" name="application" type="_jevgwPidEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__zdosPifEei0EZK9sH0UcA" name="getInstance" visibility="public" isStatic="true" method="__zdos_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__zdosfifEei0EZK9sH0UcA" type="__zYwMPifEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__zdosvifEei0EZK9sH0UcA" name="application" type="_jevgwPidEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__zdotPifEei0EZK9sH0UcA" name="getAllTrips" visibility="public" method="__zePwfifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__zePwPifEei0EZK9sH0UcA" type="_ixDe4fieEei0EZK9sH0UcA" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__zePwvifEei0EZK9sH0UcA" name="insert" visibility="public" method="__zePxPifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__zePw_ifEei0EZK9sH0UcA" name="trip" type="_4BIKQPieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__ze20PifEei0EZK9sH0UcA" name="delete" visibility="public" method="__ze20vifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__ze20fifEei0EZK9sH0UcA" name="trip" type="_4BIKQPieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__ze20_ifEei0EZK9sH0UcA" name="update" visibility="public" method="__zfd4fifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__zfd4PifEei0EZK9sH0UcA" name="trip" type="_4BIKQPieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__zfd4vifEei0EZK9sH0UcA" name="getTripWithId" visibility="public" method="__zfd5fifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__zfd4_ifEei0EZK9sH0UcA" type="_4BIKQPieEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__zfd5PifEei0EZK9sH0UcA" name="tripID" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__zgE8PifEei0EZK9sH0UcA" name="clearDataBase" visibility="public" method="__zgE8fifEei0EZK9sH0UcA"/>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="__zgE8vifEei0EZK9sH0UcA" name="insertAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="__zhTEfifEei0EZK9sH0UcA" general="__zgE8_ifEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="__zh6IfifEei0EZK9sH0UcA" name="mAsyncTaskDao" visibility="private" type="_iyvg8PieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__znZsfifEei0EZK9sH0UcA" name="insertAsyncTask" specification="__zihMPifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao = dao;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__zp18fifEei0EZK9sH0UcA" name="doInBackground" specification="__znZsvifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao.insert(params[0]);
+    return null;
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__zihMPifEei0EZK9sH0UcA" name="insertAsyncTask" visibility="private" method="__znZsfifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__znZsPifEei0EZK9sH0UcA" name="dao" type="_iyvg8PieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__znZsvifEei0EZK9sH0UcA" name="doInBackground" visibility="protected" method="__zp18fifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__zon0PifEei0EZK9sH0UcA" type="__znZs_ifEei0EZK9sH0UcA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__zon0fifEei0EZK9sH0UcA" name="params" type="_4BIKQPieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="__zp18vifEei0EZK9sH0UcA" name="getTripWithIdAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="__zp18_ifEei0EZK9sH0UcA" general="__zgE8_ifEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="__zsSMPifEei0EZK9sH0UcA" name="mAsyncTaskDaoTrip" visibility="private" type="_iyvg8PieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__ztgUfifEei0EZK9sH0UcA" name="getTripWithIdAsyncTask" specification="__zsSMfifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDaoTrip = tripDao;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__zwjofifEei0EZK9sH0UcA" name="doInBackground" specification="__ztgUvifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    return mAsyncTaskDaoTrip.findTripWithId(params[0]);
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__zsSMfifEei0EZK9sH0UcA" name="getTripWithIdAsyncTask" visibility="private" method="__ztgUfifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__ztgUPifEei0EZK9sH0UcA" name="tripDao" type="_iyvg8PieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__ztgUvifEei0EZK9sH0UcA" name="doInBackground" visibility="protected" method="__zwjofifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__zuHYPifEei0EZK9sH0UcA" type="_4BIKQPieEei0EZK9sH0UcA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__zuHYfifEei0EZK9sH0UcA" name="params" type="_jekho_idEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="__zxKsPifEei0EZK9sH0UcA" name="deletetAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="__zxKsfifEei0EZK9sH0UcA" general="__zgE8_ifEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="__zxxwfifEei0EZK9sH0UcA" name="mAsyncTaskDao" visibility="private" type="_iyvg8PieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__zzm8vifEei0EZK9sH0UcA" name="deletetAsyncTask" specification="__zyY0PifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao = dao;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__z1cIfifEei0EZK9sH0UcA" name="doInBackground" specification="__zzm8_ifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao.delete(params[0]);
+    return null;
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__zyY0PifEei0EZK9sH0UcA" name="deletetAsyncTask" visibility="private" method="__zzm8vifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__zzm8fifEei0EZK9sH0UcA" name="dao" type="_iyvg8PieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__zzm8_ifEei0EZK9sH0UcA" name="doInBackground" visibility="protected" method="__z1cIfifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__z0OAPifEei0EZK9sH0UcA" type="__znZs_ifEei0EZK9sH0UcA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__z0OAfifEei0EZK9sH0UcA" name="params" type="_4BIKQPieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="__z2DMPifEei0EZK9sH0UcA" name="UpdateAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="__z2DMfifEei0EZK9sH0UcA" general="__zgE8_ifEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="__z2qQfifEei0EZK9sH0UcA" name="mAsyncTaskDao" visibility="private" type="_iyvg8PieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__z34YvifEei0EZK9sH0UcA" name="UpdateAsyncTask" specification="__z2qQvifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao = dao;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__z6UofifEei0EZK9sH0UcA" name="doInBackground" specification="__z4fcPifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDao.update(params[0]);
+    return null;
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__z2qQvifEei0EZK9sH0UcA" name="UpdateAsyncTask" visibility="private" method="__z34YvifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__z34YfifEei0EZK9sH0UcA" name="dao" type="_iyvg8PieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__z4fcPifEei0EZK9sH0UcA" name="doInBackground" visibility="protected" method="__z6UofifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__z4fcfifEei0EZK9sH0UcA" type="__znZs_ifEei0EZK9sH0UcA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__z4fcvifEei0EZK9sH0UcA" name="params" type="_4BIKQPieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="__z6UovifEei0EZK9sH0UcA" name="DeletAllAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="__z6Uo_ifEei0EZK9sH0UcA" general="__zgE8_ifEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="__z7iwPifEei0EZK9sH0UcA" name="mDao" visibility="private" isLeaf="true" type="_iyvg8PieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__z8w4PifEei0EZK9sH0UcA" name="DeletAllAsyncTask" specification="__z7iwfifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mDao = db.TripDao();
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__z-mEfifEei0EZK9sH0UcA" name="doInBackground" specification="__z8w4fifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mDao.deleteAll();
+    return null;
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__z7iwfifEei0EZK9sH0UcA" name="DeletAllAsyncTask" visibility="private" method="__z8w4PifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__z8J0fifEei0EZK9sH0UcA" name="db" type="_ixF7IPieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__z8w4fifEei0EZK9sH0UcA" name="doInBackground" visibility="protected" method="__z-mEfifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__z8w4vifEei0EZK9sH0UcA" type="__znZs_ifEei0EZK9sH0UcA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__z8w4_ifEei0EZK9sH0UcA" name="params" type="__znZs_ifEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="__znZs_ifEei0EZK9sH0UcA" name="Void"/>
+                <packagedElement xmi:type="uml:Class" xmi:id="__z_NIPifEei0EZK9sH0UcA" name="NoteRepository" visibility="public">
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="__0AbQfifEei0EZK9sH0UcA" name="mNoteDao" visibility="private" type="_iw9_UPieEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="__0AbQvifEei0EZK9sH0UcA" name="mAllNote" visibility="private" type="_ixDe4fieEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="__0BCUPifEei0EZK9sH0UcA" name="db" visibility="private" type="_ixF7IPieEei0EZK9sH0UcA" isUnique="false"/>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="__0BCUfifEei0EZK9sH0UcA" name="INSTANCE" visibility="private" isStatic="true" type="__z_NIPifEei0EZK9sH0UcA" isUnique="false">
+                    <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="__0BCUvifEei0EZK9sH0UcA" name="defaultValue">
+                      <language>JAVA</language>
+                      <body>null</body>
+                    </defaultValue>
+                  </ownedAttribute>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0CQcvifEei0EZK9sH0UcA" name="NoteRepository" specification="__0BCU_ifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    db = TripRoomDatabase.getDatabase(application);
+    mNoteDao = db.NoteDao();
+    mAllNote = mNoteDao.getAllNotes();
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0DekPifEei0EZK9sH0UcA" name="getInstance" specification="__0C3gPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    if (INSTANCE == null) {
+        INSTANCE = new NoteRepository(application);
+    }
+    return INSTANCE;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0Dek_ifEei0EZK9sH0UcA" name="insert" specification="__0DekfifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    new NoteRepository.insertTxtNoteAsyncTask(mNoteDao).execute(note);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0EssvifEei0EZK9sH0UcA" name="insertPictureNote" specification="__0EssPifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    new NoteRepository.insertPictureNoteAsyncTask(mNoteDao).execute(note);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0FTw_ifEei0EZK9sH0UcA" name="getPicturesNoteWithIdTrip" specification="__0Ess_ifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    try {
+        return new getPicturesNotesWithIdTripAsyncTask(mNoteDao).execute(idTrip).get();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    } catch (ExecutionException e) {
+        e.printStackTrace();
+    }
+    return null;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0F60_ifEei0EZK9sH0UcA" name="getListNoteWithIdTrip" specification="__0F60PifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    try {
+        return new getAsyncTask(mNoteDao).execute(idTrip).get();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    } catch (ExecutionException e) {
+        e.printStackTrace();
+    }
+    return null;
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0QS5PifEei0EZK9sH0UcA" name="update" specification="__0QS4vifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    new NoteRepository.UpdateTxtNoteAsyncTask(mNoteDao).execute(note);
+</body>
+                  </ownedBehavior>
+                  <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0Q58PifEei0EZK9sH0UcA" name="clearDataBase" specification="__0QS5fifEei0EZK9sH0UcA">
+                    <language>JAVA</language>
+                    <body>
+    new NoteRepository.DeletAllAsyncTask(db).execute();
+</body>
+                  </ownedBehavior>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__0BCU_ifEei0EZK9sH0UcA" name="NoteRepository" visibility="public" method="__0CQcvifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__0CQcfifEei0EZK9sH0UcA" name="application" type="_jevgwPidEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__0C3gPifEei0EZK9sH0UcA" name="getInstance" visibility="public" isStatic="true" method="__0DekPifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__0C3gfifEei0EZK9sH0UcA" type="__z_NIPifEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__0C3gvifEei0EZK9sH0UcA" name="application" type="_jevgwPidEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__0DekfifEei0EZK9sH0UcA" name="insert" visibility="public" method="__0Dek_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__0DekvifEei0EZK9sH0UcA" name="note" type="_4BNp0PieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__0EssPifEei0EZK9sH0UcA" name="insertPictureNote" visibility="public" method="__0EssvifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__0EssfifEei0EZK9sH0UcA" name="note" type="_4BTJYPieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__0Ess_ifEei0EZK9sH0UcA" name="getPicturesNoteWithIdTrip" visibility="public" method="__0FTw_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__0EstPifEei0EZK9sH0UcA" type="_4BTJYPieEei0EZK9sH0UcA" direction="return">
+                      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__0FTwPifEei0EZK9sH0UcA"/>
+                      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__0FTwfifEei0EZK9sH0UcA" value="*"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__0FTwvifEei0EZK9sH0UcA" name="idTrip" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__0F60PifEei0EZK9sH0UcA" name="getListNoteWithIdTrip" visibility="public" method="__0F60_ifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__0F60fifEei0EZK9sH0UcA" type="_4BNp0PieEei0EZK9sH0UcA" direction="return"/>
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__0F60vifEei0EZK9sH0UcA" name="idTrip" type="_jekho_idEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__0QS4vifEei0EZK9sH0UcA" name="update" visibility="public" method="__0QS5PifEei0EZK9sH0UcA">
+                    <ownedParameter xmi:type="uml:Parameter" xmi:id="__0QS4_ifEei0EZK9sH0UcA" name="note" type="_4BNp0PieEei0EZK9sH0UcA"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:type="uml:Operation" xmi:id="__0QS5fifEei0EZK9sH0UcA" name="clearDataBase" visibility="public" method="__0Q58PifEei0EZK9sH0UcA"/>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="__0Gh4PifEei0EZK9sH0UcA" name="getAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="__0Gh4fifEei0EZK9sH0UcA" general="__zgE8_ifEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="__0HwAPifEei0EZK9sH0UcA" name="mAsyncTaskDaoNote" visibility="private" type="_iw9_UPieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0I-IPifEei0EZK9sH0UcA" name="getAsyncTask" specification="__0HwAfifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDaoNote = noteDao;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0KzUfifEei0EZK9sH0UcA" name="doInBackground" specification="__0I-IfifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    return mAsyncTaskDaoNote.findNoteForTrip(params[0]);
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__0HwAfifEei0EZK9sH0UcA" name="getAsyncTask" visibility="private" method="__0I-IPifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0IXEfifEei0EZK9sH0UcA" name="noteDao" type="_iw9_UPieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__0I-IfifEei0EZK9sH0UcA" name="doInBackground" visibility="protected" method="__0KzUfifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0I-IvifEei0EZK9sH0UcA" type="_4BNp0PieEei0EZK9sH0UcA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0I-I_ifEei0EZK9sH0UcA" name="params" type="_jekho_idEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="__0KzUvifEei0EZK9sH0UcA" name="getPicturesNotesWithIdTripAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="__0LaYPifEei0EZK9sH0UcA" general="__zgE8_ifEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="__0MBcfifEei0EZK9sH0UcA" name="mAsyncTaskDaoNote" visibility="private" type="_iw9_UPieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0N2oPifEei0EZK9sH0UcA" name="getPicturesNotesWithIdTripAsyncTask" specification="__0MBcvifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDaoNote = noteDao;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0QS4fifEei0EZK9sH0UcA" name="doInBackground" specification="__0N2ofifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    return mAsyncTaskDaoNote.getPicturesNoteWithIdTrip(params[0]);
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__0MBcvifEei0EZK9sH0UcA" name="getPicturesNotesWithIdTripAsyncTask" visibility="private" method="__0N2oPifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0NPkfifEei0EZK9sH0UcA" name="noteDao" type="_iw9_UPieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__0N2ofifEei0EZK9sH0UcA" name="doInBackground" visibility="protected" method="__0QS4fifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0OdsPifEei0EZK9sH0UcA" type="_4BTJYPieEei0EZK9sH0UcA" direction="return">
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__0OdsfifEei0EZK9sH0UcA"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__0OdsvifEei0EZK9sH0UcA" value="*"/>
+                      </ownedParameter>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0Ods_ifEei0EZK9sH0UcA" name="params" type="_jekho_idEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="__0Q58fifEei0EZK9sH0UcA" name="UpdateTxtNoteAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="__0Q58vifEei0EZK9sH0UcA" general="__zgE8_ifEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="__0SIEPifEei0EZK9sH0UcA" name="mAsyncTaskDaoNote" visibility="private" type="_iw9_UPieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0TWMfifEei0EZK9sH0UcA" name="UpdateTxtNoteAsyncTask" specification="__0SIEfifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDaoNote = noteDao;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0VLYfifEei0EZK9sH0UcA" name="doInBackground" specification="__0TWMvifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDaoNote.updateTxNote(params[0]);
+    return null;
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__0SIEfifEei0EZK9sH0UcA" name="UpdateTxtNoteAsyncTask" visibility="private" method="__0TWMfifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0TWMPifEei0EZK9sH0UcA" name="noteDao" type="_iw9_UPieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__0TWMvifEei0EZK9sH0UcA" name="doInBackground" visibility="protected" method="__0VLYfifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0TWM_ifEei0EZK9sH0UcA" type="__znZs_ifEei0EZK9sH0UcA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0T9QPifEei0EZK9sH0UcA" name="params" type="_4BNp0PieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="__0VycPifEei0EZK9sH0UcA" name="insertTxtNoteAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="__0VycfifEei0EZK9sH0UcA" general="__zgE8_ifEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="__0XAkfifEei0EZK9sH0UcA" name="mAsyncTaskDaoNote" visibility="private" type="_iw9_UPieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0YOsvifEei0EZK9sH0UcA" name="insertTxtNoteAsyncTask" specification="__0XAkvifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDaoNote = noteDao;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0aq8fifEei0EZK9sH0UcA" name="doInBackground" specification="__0Y1wPifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDaoNote.insertTxtNote(params[0]);
+    return null;
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__0XAkvifEei0EZK9sH0UcA" name="insertTxtNoteAsyncTask" visibility="private" method="__0YOsvifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0YOsfifEei0EZK9sH0UcA" name="noteDao" type="_iw9_UPieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__0Y1wPifEei0EZK9sH0UcA" name="doInBackground" visibility="protected" method="__0aq8fifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0Y1wfifEei0EZK9sH0UcA" type="__znZs_ifEei0EZK9sH0UcA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0Y1wvifEei0EZK9sH0UcA" name="params" type="_4BNp0PieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="__0aq8vifEei0EZK9sH0UcA" name="insertPictureNoteAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="__0bSAPifEei0EZK9sH0UcA" general="__zgE8_ifEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="__0b5EfifEei0EZK9sH0UcA" name="mAsyncTaskDaoNote" visibility="private" type="_iw9_UPieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0dHMvifEei0EZK9sH0UcA" name="insertPictureNoteAsyncTask" specification="__0b5EvifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDaoNote = noteDao;
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0fjcfifEei0EZK9sH0UcA" name="doInBackground" specification="__0duQPifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mAsyncTaskDaoNote.insertImgNote(params[0]);
+    return null;
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__0b5EvifEei0EZK9sH0UcA" name="insertPictureNoteAsyncTask" visibility="private" method="__0dHMvifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0dHMfifEei0EZK9sH0UcA" name="noteDao" type="_iw9_UPieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__0duQPifEei0EZK9sH0UcA" name="doInBackground" visibility="protected" method="__0fjcfifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0duQfifEei0EZK9sH0UcA" type="__znZs_ifEei0EZK9sH0UcA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0duQvifEei0EZK9sH0UcA" name="params" type="_4BTJYPieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="__0gKgPifEei0EZK9sH0UcA" name="DeletAllAsyncTask" visibility="private">
+                    <generalization xmi:type="uml:Generalization" xmi:id="__0gKgfifEei0EZK9sH0UcA" general="__zgE8_ifEei0EZK9sH0UcA"/>
+                    <ownedAttribute xmi:type="uml:Property" xmi:id="__0h_sPifEei0EZK9sH0UcA" name="mNoteDao" visibility="private" isLeaf="true" type="_iw9_UPieEei0EZK9sH0UcA" isUnique="false"/>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0jN0vifEei0EZK9sH0UcA" name="DeletAllAsyncTask" specification="__0h_sfifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mNoteDao = db.NoteDao();
+</body>
+                    </ownedBehavior>
+                    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__0lqEfifEei0EZK9sH0UcA" name="doInBackground" specification="__0j04PifEei0EZK9sH0UcA">
+                      <language>JAVA</language>
+                      <body>
+    mNoteDao.deleteAll();
+    return null;
+</body>
+                    </ownedBehavior>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__0h_sfifEei0EZK9sH0UcA" name="DeletAllAsyncTask" visibility="private" method="__0jN0vifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0jN0fifEei0EZK9sH0UcA" name="db" type="_ixF7IPieEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                    <ownedOperation xmi:type="uml:Operation" xmi:id="__0j04PifEei0EZK9sH0UcA" name="doInBackground" visibility="protected" method="__0lqEfifEei0EZK9sH0UcA">
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0j04fifEei0EZK9sH0UcA" type="__znZs_ifEei0EZK9sH0UcA" direction="return"/>
+                      <ownedParameter xmi:type="uml:Parameter" xmi:id="__0j04vifEei0EZK9sH0UcA" name="params" type="__znZs_ifEei0EZK9sH0UcA"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_jc8J8PidEei0EZK9sH0UcA" name="importedTypes">
+      <packagedElement xmi:type="uml:Package" xmi:id="_jc8J8fidEei0EZK9sH0UcA" name="android">
+        <packagedElement xmi:type="uml:Package" xmi:id="_jc8J8vidEei0EZK9sH0UcA" name="support">
+          <packagedElement xmi:type="uml:Package" xmi:id="_jc8J8_idEei0EZK9sH0UcA" name="v7">
+            <packagedElement xmi:type="uml:Package" xmi:id="_jc8J9PidEei0EZK9sH0UcA" name="app">
+              <packagedElement xmi:type="uml:Class" xmi:id="_jc8J9fidEei0EZK9sH0UcA" name="AppCompatActivity"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_13INUPidEei0EZK9sH0UcA" name="widget">
+              <packagedElement xmi:type="uml:Class" xmi:id="_13INUfidEei0EZK9sH0UcA" name="AppCompatButton"/>
+            </packagedElement>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_jezLIfidEei0EZK9sH0UcA" name="v4">
+            <packagedElement xmi:type="uml:Package" xmi:id="_jezLIvidEei0EZK9sH0UcA" name="app">
+              <packagedElement xmi:type="uml:Class" xmi:id="_jezLI_idEei0EZK9sH0UcA" name="FragmentActivity"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_MQbVIPifEei0EZK9sH0UcA" name="Fragment"/>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_jeheUfidEei0EZK9sH0UcA" name="os">
+          <packagedElement xmi:type="uml:Class" xmi:id="_jeheUvidEei0EZK9sH0UcA" name="Bundle"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="__zgE8_ifEei0EZK9sH0UcA" name="AsyncTask"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_jeiscfidEei0EZK9sH0UcA" name="content">
+          <packagedElement xmi:type="uml:Class" xmi:id="_jeiscvidEei0EZK9sH0UcA" name="Intent"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_13KCg_idEei0EZK9sH0UcA" name="Context"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_jepaIPidEei0EZK9sH0UcA" name="arch">
+          <packagedElement xmi:type="uml:Package" xmi:id="_jepaIfidEei0EZK9sH0UcA" name="lifecycle">
+            <packagedElement xmi:type="uml:Class" xmi:id="_jepaIvidEei0EZK9sH0UcA" name="AndroidViewModel"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_ixDe4fieEei0EZK9sH0UcA" name="LiveData"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_ixF7IfieEei0EZK9sH0UcA" name="persistence">
+            <packagedElement xmi:type="uml:Package" xmi:id="_ixF7IvieEei0EZK9sH0UcA" name="room">
+              <packagedElement xmi:type="uml:Class" xmi:id="_ixF7I_ieEei0EZK9sH0UcA" name="RoomDatabase"/>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_jeu5s_idEei0EZK9sH0UcA" name="app">
+          <packagedElement xmi:type="uml:Class" xmi:id="_jevgwPidEei0EZK9sH0UcA" name="Application"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_13BfoPidEei0EZK9sH0UcA" name="media">
+          <packagedElement xmi:type="uml:Class" xmi:id="_13BfofidEei0EZK9sH0UcA" name="MediaRecorder"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_13D74_idEei0EZK9sH0UcA" name="MediaPlayer"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_Fi0DEvieEei0EZK9sH0UcA" name="widget">
+          <packagedElement xmi:type="uml:Class" xmi:id="_Fi0DE_ieEei0EZK9sH0UcA" name="EditText"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_dhJEcPieEei0EZK9sH0UcA" name="BaseAdapter"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_MQeYcfifEei0EZK9sH0UcA" name="TextView"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_MQsa4fifEei0EZK9sH0UcA" name="ArrayAdapter"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_dhKSkvieEei0EZK9sH0UcA" name="net">
+          <packagedElement xmi:type="uml:Class" xmi:id="_dhKSk_ieEei0EZK9sH0UcA" name="Uri"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_dhLgtPieEei0EZK9sH0UcA" name="graphics">
+          <packagedElement xmi:type="uml:Class" xmi:id="_dhMHwPieEei0EZK9sH0UcA" name="Bitmap"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_dhRnUPieEei0EZK9sH0UcA" name="view">
+          <packagedElement xmi:type="uml:Class" xmi:id="_dhRnUfieEei0EZK9sH0UcA" name="View"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_dhSOYfieEei0EZK9sH0UcA" name="ViewGroup"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_MQiC0PifEei0EZK9sH0UcA" name="LayoutInflater"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_MQwsU_ifEei0EZK9sH0UcA" name="ContextMenu"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_MQzvoPifEei0EZK9sH0UcA" name="MenuItem"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_jer2YPidEei0EZK9sH0UcA" name="com">
+        <packagedElement xmi:type="uml:Package" xmi:id="_jer2YfidEei0EZK9sH0UcA" name="example">
+          <packagedElement xmi:type="uml:Package" xmi:id="_jer2YvidEei0EZK9sH0UcA" name="android">
+            <packagedElement xmi:type="uml:Package" xmi:id="_jer2Y_idEei0EZK9sH0UcA" name="carnetDeVoyage">
+              <packagedElement xmi:type="uml:Package" xmi:id="_jer2ZPidEei0EZK9sH0UcA" name="reposistory">
+                <packagedElement xmi:type="uml:Class" xmi:id="_jesdcPidEei0EZK9sH0UcA" name="TripRepository"/>
+                <packagedElement xmi:type="uml:Class" xmi:id="_jetrkfidEei0EZK9sH0UcA" name="NoteRepository"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Package" xmi:id="_iw9_UfieEei0EZK9sH0UcA" name="entities">
+                <packagedElement xmi:type="uml:Class" xmi:id="_iw9_UvieEei0EZK9sH0UcA" name="PictureNote"/>
+                <packagedElement xmi:type="uml:Class" xmi:id="_iw_0gfieEei0EZK9sH0UcA" name="TxtNote"/>
+                <packagedElement xmi:type="uml:Class" xmi:id="_iywIAfieEei0EZK9sH0UcA" name="Trip"/>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_FjAQUPieEei0EZK9sH0UcA" name="ListTripFragment">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_FjAQUfieEei0EZK9sH0UcA" name="OnItemSelectedListener"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_MQrMwfifEei0EZK9sH0UcA" name="View">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_MQrMwvifEei0EZK9sH0UcA" name="OnCreateContextMenuListener"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_MQx6cPifEei0EZK9sH0UcA" name="ContextMenu">
+        <packagedElement xmi:type="uml:Class" xmi:id="_MQx6cfifEei0EZK9sH0UcA" name="ContextMenuInfo"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_jekhoPidEei0EZK9sH0UcA" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_jekhofidEei0EZK9sH0UcA" name="java">
+        <packagedElement xmi:type="uml:Package" xmi:id="_jekhovidEei0EZK9sH0UcA" name="lang">
+          <packagedElement xmi:type="uml:Class" xmi:id="_jekho_idEei0EZK9sH0UcA" name="String"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_dhPyI_ieEei0EZK9sH0UcA" name="Object"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_13O7APidEei0EZK9sH0UcA" name="io">
+          <packagedElement xmi:type="uml:Class" xmi:id="_13O7AfidEei0EZK9sH0UcA" name="File"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_13Xd4PidEei0EZK9sH0UcA" name="IOException"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jcpPAPidEei0EZK9sH0UcA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jcp2EPidEei0EZK9sH0UcA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jcxK0PidEei0EZK9sH0UcA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jcxx4PidEei0EZK9sH0UcA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Codegen/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jcxx4fidEei0EZK9sH0UcA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jcxx4vidEei0EZK9sH0UcA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <PapyrusJava:External xmi:id="_jeZigPidEei0EZK9sH0UcA" name="android.support.v7.app.AppCompatActivity" base_Classifier="_jc8J9fidEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_jeiFYPidEei0EZK9sH0UcA" name="android.os.Bundle" base_Classifier="_jeheUvidEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_jejTgPidEei0EZK9sH0UcA" name="android.content.Intent" base_Classifier="_jeiscvidEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_jelIsPidEei0EZK9sH0UcA" name="java.lang.String" base_Classifier="_jekho_idEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_jeqoQPidEei0EZK9sH0UcA" name="android.arch.lifecycle.AndroidViewModel" base_Classifier="_jepaIvidEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_jetEgPidEei0EZK9sH0UcA" name="com.example.android.carnetDeVoyage.reposistory.TripRepository" base_Classifier="_jesdcPidEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_jeuSoPidEei0EZK9sH0UcA" name="com.example.android.carnetDeVoyage.reposistory.NoteRepository" base_Classifier="_jetrkfidEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_jewH0PidEei0EZK9sH0UcA" name="android.app.Application" base_Classifier="_jevgwPidEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_jezyMPidEei0EZK9sH0UcA" name="android.support.v4.app.FragmentActivity" base_Classifier="_jezLI_idEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_12_DYPidEei0EZK9sH0UcA" name="RecordButton" base_Classifier="_129OMPidEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_13CtwPidEei0EZK9sH0UcA" name="android.media.MediaRecorder" base_Classifier="_13BfofidEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_13D74PidEei0EZK9sH0UcA" name="PlayButton" base_Classifier="_13Ctw_idEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_13Ei8PidEei0EZK9sH0UcA" name="android.media.MediaPlayer" base_Classifier="_13D74_idEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_13I0YPidEei0EZK9sH0UcA" name="android.support.v7.widget.AppCompatButton" base_Classifier="_13INUfidEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_13KCgPidEei0EZK9sH0UcA" name="OnClickListener" base_Classifier="_13JbcvidEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_13KpkPidEei0EZK9sH0UcA" name="android.content.Context" base_Classifier="_13KCg_idEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="_13L3sPidEei0EZK9sH0UcA" base_BehavioralFeature="_13LQoPidEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="_13Ns4PidEei0EZK9sH0UcA" base_BehavioralFeature="_13MexfidEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_13QJIPidEei0EZK9sH0UcA" name="java.io.File" base_Classifier="_13O7AfidEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="_13RXQPidEei0EZK9sH0UcA" base_BehavioralFeature="_13QwMPidEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_13YE8PidEei0EZK9sH0UcA" name="java.io.IOException" base_Classifier="_13Xd4PidEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="_13Z6IPidEei0EZK9sH0UcA" base_BehavioralFeature="_13ZTEPidEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="_Fiw_wPieEei0EZK9sH0UcA" base_BehavioralFeature="_FivxofieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_Fi1RMPieEei0EZK9sH0UcA" name="android.widget.EditText" base_Classifier="_Fi0DE_ieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_FjBecPieEei0EZK9sH0UcA" name="ListTripFragment.OnItemSelectedListener" base_Classifier="_FjAQUfieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_dhKSkPieEei0EZK9sH0UcA" name="android.widget.BaseAdapter" base_Classifier="_dhJEcPieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_dhLgsPieEei0EZK9sH0UcA" name="android.net.Uri" base_Classifier="_dhKSk_ieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_dhMu0PieEei0EZK9sH0UcA" name="android.graphics.Bitmap" base_Classifier="_dhMHwPieEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="_dhOkAPieEei0EZK9sH0UcA" base_BehavioralFeature="_dhN88fieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_dhQZMPieEei0EZK9sH0UcA" name="java.lang.Object" base_Classifier="_dhPyI_ieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_dhSOYPieEei0EZK9sH0UcA" name="android.view.View" base_Classifier="_dhRnUfieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_dhS1cPieEei0EZK9sH0UcA" name="android.view.ViewGroup" base_Classifier="_dhSOYfieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_iw_NcPieEei0EZK9sH0UcA" name="com.example.android.carnetDeVoyage.entities.PictureNote" base_Classifier="_iw9_UvieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_ixAbkPieEei0EZK9sH0UcA" name="com.example.android.carnetDeVoyage.entities.TxtNote" base_Classifier="_iw_0gfieEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="_ixCQwPieEei0EZK9sH0UcA" base_Parameter="_ixBCovieEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="_ixC30PieEei0EZK9sH0UcA" base_Parameter="_ixCQwvieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_ixEF8PieEei0EZK9sH0UcA" name="android.arch.lifecycle.LiveData" base_Classifier="_ixDe4fieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_ixGiMPieEei0EZK9sH0UcA" name="android.arch.persistence.room.RoomDatabase" base_Classifier="_ixF7I_ieEei0EZK9sH0UcA"/>
+  <PapyrusJava:Volatile xmi:id="_ixHwUPieEei0EZK9sH0UcA" base_Property="_ixHJRPieEei0EZK9sH0UcA"/>
+  <PapyrusJava:Final xmi:id="_ixI-cPieEei0EZK9sH0UcA" base_Parameter="_ixIXYfieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_iywvEPieEei0EZK9sH0UcA" name="com.example.android.carnetDeVoyage.entities.Trip" base_Classifier="_iywIAfieEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="_iyx9MPieEei0EZK9sH0UcA" base_Parameter="_iyxWIvieEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="_4BJ_cPieEei0EZK9sH0UcA" base_BehavioralFeature="_4BJYY_ieEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="_4BO38PieEei0EZK9sH0UcA" base_BehavioralFeature="_4BOQ4fieEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="_4BRUMPieEei0EZK9sH0UcA" base_BehavioralFeature="_4BQtIfieEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="_4BU-kPieEei0EZK9sH0UcA" base_BehavioralFeature="_4BUXgPieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_MQb8MPifEei0EZK9sH0UcA" name="android.support.v4.app.Fragment" base_Classifier="_MQbVIPifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_MQe_gPifEei0EZK9sH0UcA" name="android.widget.TextView" base_Classifier="_MQeYcfifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_MQip4PifEei0EZK9sH0UcA" name="android.view.LayoutInflater" base_Classifier="_MQiC0PifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_MQniYPifEei0EZK9sH0UcA" name="com.example.android.carnetDeVoyage.entities.Trip" base_Classifier="_4BIKQPieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_MQowgPifEei0EZK9sH0UcA" name="com.example.android.carnetDeVoyage.entities.TxtNote" base_Classifier="_4BNp0PieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_MQrz0PifEei0EZK9sH0UcA" name="View.OnCreateContextMenuListener" base_Classifier="_MQrMwvifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_MQtB8PifEei0EZK9sH0UcA" name="android.widget.ArrayAdapter" base_Classifier="_MQsa4fifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_MQxTYPifEei0EZK9sH0UcA" name="android.view.ContextMenu" base_Classifier="_MQwsU_ifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_MQyhgPifEei0EZK9sH0UcA" name="ContextMenu.ContextMenuInfo" base_Classifier="_MQx6cfifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_MQ0WsPifEei0EZK9sH0UcA" name="android.view.MenuItem" base_Classifier="_MQzvoPifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_juzrIPifEei0EZK9sH0UcA" name="OnItemSelectedListener" base_Classifier="_tyqVsPifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_txDMIPifEei0EZK9sH0UcA" name="ListTripFragmentViewModel" base_Classifier="_txB-AfifEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="_vBuw4PifEei0EZK9sH0UcA" base_BehavioralFeature="_vBtiwfifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="_w9DOEPifEei0EZK9sH0UcA" name="TripDetailFragmentViewModel" base_Classifier="_w9B_9_ifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Final xmi:id="_w9FDQPifEei0EZK9sH0UcA" base_Parameter="_w9EcMPifEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="_yzrYgPifEei0EZK9sH0UcA" base_BehavioralFeature="_yzo8QfifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="__zZ-UPifEei0EZK9sH0UcA" name="com.example.android.carnetDeVoyage.dataBase.TripDao" base_Classifier="_iyvg8PieEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="__zbzgPifEei0EZK9sH0UcA" name="com.example.android.carnetDeVoyage.dataBase.TripRoomDatabase" base_Classifier="_ixF7IPieEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="__zdBoPifEei0EZK9sH0UcA" base_BehavioralFeature="__zbzhPifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="__zhTEPifEei0EZK9sH0UcA" name="android.os.AsyncTask" base_Classifier="__zgE8_ifEei0EZK9sH0UcA"/>
+  <PapyrusJava:StaticClassifier xmi:id="__zh6IPifEei0EZK9sH0UcA" base_Classifier="__zgE8vifEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="__zjIQPifEei0EZK9sH0UcA" base_BehavioralFeature="__zihMPifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="__zoAwPifEei0EZK9sH0UcA" name="Void" base_Classifier="__znZs_ifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="__zpO4PifEei0EZK9sH0UcA" base_Parameter="__zon0fifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Final xmi:id="__zp18PifEei0EZK9sH0UcA" base_Parameter="__zon0fifEei0EZK9sH0UcA"/>
+  <PapyrusJava:StaticClassifier xmi:id="__zrrIPifEei0EZK9sH0UcA" base_Classifier="__zp18vifEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="__zs5QPifEei0EZK9sH0UcA" base_BehavioralFeature="__zsSMfifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="__zuucPifEei0EZK9sH0UcA" base_Parameter="__zuHYfifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Final xmi:id="__zwjoPifEei0EZK9sH0UcA" base_Parameter="__zuHYfifEei0EZK9sH0UcA"/>
+  <PapyrusJava:StaticClassifier xmi:id="__zxxwPifEei0EZK9sH0UcA" base_Classifier="__zxKsPifEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="__zzm8PifEei0EZK9sH0UcA" base_BehavioralFeature="__zyY0PifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="__z01EPifEei0EZK9sH0UcA" base_Parameter="__z0OAfifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Final xmi:id="__z1cIPifEei0EZK9sH0UcA" base_Parameter="__z0OAfifEei0EZK9sH0UcA"/>
+  <PapyrusJava:StaticClassifier xmi:id="__z2qQPifEei0EZK9sH0UcA" base_Classifier="__z2DMPifEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="__z34YPifEei0EZK9sH0UcA" base_BehavioralFeature="__z2qQvifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="__z5tkPifEei0EZK9sH0UcA" base_Parameter="__z4fcvifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Final xmi:id="__z6UoPifEei0EZK9sH0UcA" base_Parameter="__z4fcvifEei0EZK9sH0UcA"/>
+  <PapyrusJava:StaticClassifier xmi:id="__z67sPifEei0EZK9sH0UcA" base_Classifier="__z6UovifEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="__z8J0PifEei0EZK9sH0UcA" base_BehavioralFeature="__z7iwfifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="__z9X8PifEei0EZK9sH0UcA" base_Parameter="__z8w4_ifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Final xmi:id="__z-mEPifEei0EZK9sH0UcA" base_Parameter="__z8w4_ifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="__0AbQPifEei0EZK9sH0UcA" name="com.example.android.carnetDeVoyage.dataBase.NoteDao" base_Classifier="_iw9_UPieEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="__0CQcPifEei0EZK9sH0UcA" base_BehavioralFeature="__0BCU_ifEei0EZK9sH0UcA"/>
+  <PapyrusJava:External xmi:id="__0EFoPifEei0EZK9sH0UcA" name="com.example.android.carnetDeVoyage.entities.PictureNote" base_Classifier="_4BTJYPieEei0EZK9sH0UcA"/>
+  <PapyrusJava:StaticClassifier xmi:id="__0HI8PifEei0EZK9sH0UcA" base_Classifier="__0Gh4PifEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="__0IXEPifEei0EZK9sH0UcA" base_BehavioralFeature="__0HwAfifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="__0KMQPifEei0EZK9sH0UcA" base_Parameter="__0I-I_ifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Final xmi:id="__0KzUPifEei0EZK9sH0UcA" base_Parameter="__0I-I_ifEei0EZK9sH0UcA"/>
+  <PapyrusJava:StaticClassifier xmi:id="__0MBcPifEei0EZK9sH0UcA" base_Classifier="__0KzUvifEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="__0NPkPifEei0EZK9sH0UcA" base_BehavioralFeature="__0MBcvifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="__0PEwPifEei0EZK9sH0UcA" base_Parameter="__0Ods_ifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Final xmi:id="__0QS4PifEei0EZK9sH0UcA" base_Parameter="__0Ods_ifEei0EZK9sH0UcA"/>
+  <PapyrusJava:StaticClassifier xmi:id="__0RhAPifEei0EZK9sH0UcA" base_Classifier="__0Q58fifEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="__0SvIPifEei0EZK9sH0UcA" base_BehavioralFeature="__0SIEfifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="__0UkUPifEei0EZK9sH0UcA" base_Parameter="__0T9QPifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Final xmi:id="__0VLYPifEei0EZK9sH0UcA" base_Parameter="__0T9QPifEei0EZK9sH0UcA"/>
+  <PapyrusJava:StaticClassifier xmi:id="__0XAkPifEei0EZK9sH0UcA" base_Classifier="__0VycPifEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="__0YOsPifEei0EZK9sH0UcA" base_BehavioralFeature="__0XAkvifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="__0Zc0PifEei0EZK9sH0UcA" base_Parameter="__0Y1wvifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Final xmi:id="__0aq8PifEei0EZK9sH0UcA" base_Parameter="__0Y1wvifEei0EZK9sH0UcA"/>
+  <PapyrusJava:StaticClassifier xmi:id="__0b5EPifEei0EZK9sH0UcA" base_Classifier="__0aq8vifEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="__0dHMPifEei0EZK9sH0UcA" base_BehavioralFeature="__0b5EvifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="__0eVUPifEei0EZK9sH0UcA" base_Parameter="__0duQvifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Final xmi:id="__0fjcPifEei0EZK9sH0UcA" base_Parameter="__0duQvifEei0EZK9sH0UcA"/>
+  <PapyrusJava:StaticClassifier xmi:id="__0hYoPifEei0EZK9sH0UcA" base_Classifier="__0gKgPifEei0EZK9sH0UcA"/>
+  <standard:Create xmi:id="__0jN0PifEei0EZK9sH0UcA" base_BehavioralFeature="__0h_sfifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Variadic xmi:id="__0lDAPifEei0EZK9sH0UcA" base_Parameter="__0j04vifEei0EZK9sH0UcA"/>
+  <PapyrusJava:Final xmi:id="__0lqEPifEei0EZK9sH0UcA" base_Parameter="__0j04vifEei0EZK9sH0UcA"/>
+</xmi:XMI>

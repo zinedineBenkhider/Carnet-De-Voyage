@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical"
+    android:background="@mipmap/image6"
+    android:paddingVertical="20dp">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/trip1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="voyage 1"
+                android:layout_marginVertical="15dp"
+                />
+
+            <TextView
+                android:id="@+id/trip2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="voyage 2"
+                android:layout_marginVertical="15dp"
+                />
+
+            <TextView
+                android:id="@+id/trip3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="voyage 3"
+                android:layout_marginVertical="15dp"
+                />
+
+            <TextView
+                android:id="@+id/trip4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="voyage 4"
+                android:layout_marginVertical="15dp"
+                />
+
+            <TextView
+                android:id="@+id/trip5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="voyage 5"
+                android:layout_marginVertical="15dp"
+                />
+
+            <TextView
+                android:id="@+id/trip6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="voyage 6"
+                android:layout_marginVertical="15dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

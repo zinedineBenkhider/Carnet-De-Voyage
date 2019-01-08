@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_view_height">170dp</dimen>
+    <dimen name="card_view_width">140dp</dimen>
+    <dimen name="card_view_config_height">90dp</dimen>
+    <dimen name="card_view_config_width">300dp</dimen>
+    <dimen name="card_view_margin">10dp</dimen>
+    <dimen name="card_view_image_width">64dp</dimen>
+    <dimen name="card_view_image_height">64dp</dimen>
+    <dimen name="card_view_text_margin">30dp</dimen>
+    <dimen name="card_view_text_size">15dp</dimen>
+    <dimen name="edittext_padding">10dp</dimen>
+</resources>

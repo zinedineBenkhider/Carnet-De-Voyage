@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Maquette</string>
+    <string name="addTrip">Ajouter un Voyage</string>
+    <string name="editTrip">Modifier Voyage</string>
+    <string name="viewTrips">Liste de Voyages</string>
+    <string name="importExport">Import/Export</string>
+    <string name="config">Options</string>
+</resources>

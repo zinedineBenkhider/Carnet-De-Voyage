@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical"
+    android:background="@mipmap/image6"
+    android:paddingVertical="20dp"
+    tools:context="com.example.yahiatene.maquette.MainActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/continent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:padding="@dimen/edittext_padding"
+                android:hint="Continent"
+                android:background="@layout/my_button"
+                android:inputType="text"
+                android:layout_marginVertical="15dp"/>
+
+
+            <EditText
+                android:id="@+id/country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:padding="@dimen/edittext_padding"
+                android:hint=" Pays "
+                android:background="@layout/my_button"
+                android:inputType="text"
+                android:layout_marginVertical="15dp"
+                />
+
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:padding="@dimen/edittext_padding"
+                android:hint=" Ville "
+                android:background="@layout/my_button"
+                android:inputType="text"
+                android:layout_marginVertical="15dp"
+                />
+
+            <EditText
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:padding="@dimen/edittext_padding"
+                android:hint=" Date "
+                android:background="@layout/my_button"
+                android:inputType="date"
+                android:layout_marginVertical="15dp"
+                />
+
+
+            <EditText
+                android:id="@+id/note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:padding="@dimen/edittext_padding"
+                android:hint=" Note"
+                android:background="@layout/my_button"
+                android:inputType="textMultiLine"
+                android:layout_marginVertical="15dp"
+                />
+
+
+            <Button
+                android:id="@+id/import_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Importer Image"
+                android:textColor="@color/white"
+                android:layout_marginVertical="15dp"
+                android:background="@layout/my_button"
+                tools:layout_editor_absoluteX="111dp"
+                tools:layout_editor_absoluteY="34dp"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@layout/my_button"
+                android:text="Ajouter"
+                android:layout_marginHorizontal="300dp"
+                android:layout_marginVertical="50dp"
+                android:textColor="@color/white"
+
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
