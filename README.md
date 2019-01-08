@@ -10,7 +10,7 @@
 ### Objectifs du projet
 
 - créer une application fonctionnant sur tablettes Android et permettant de prendre des notes (sous formes de
-photos, d’écrits, d’enregistrements …). L’application permet aussi de visualiser les voyages sur une carte, de
+photos, d’écrits) L’application permet aussi de visualiser les voyages sur une carte, de
 cliquer sur les notes de la carte afin de voir le détails.
 
 
@@ -18,22 +18,14 @@ cliquer sur les notes de la carte afin de voir le détails.
 
 - Créer/modifier/voir des voyages
 - Prendre des notes datées et géolocalisées
-- note == photo, note écrite, enregistrement audio, URL d'un site ...
-- Pouvoir associer un tag à une note
-- Montrer les notes sur une carte (googleMap ET OpenStreet) - Le choix peut se faire dynamiquement
-- Visualiser les notes par dates, lieux, tags ...
-- Visualiser les détails d’une note
-- Import/export des voyages
-- Créer un sous-voyage dans un voyage
+- note == photo, note écrite.
+- Pouvoir associer un tag à plusieurs note
+- Montrer les notes sur une carte (googleMap)
+- Supprimer une note/un voyage
+- Visualiser les notes par dates, lieux, tags, texte ...
+- Visualiser les voyages par dates, titre.
+- Export des voyages
 - Fonctionnement offline (tout en local sur la tablette)
-
-
-### Développements
-
-- Création d'une page d'acceuil
-- Interation entre plusieurs pages
-- Création d'une liste de voyages
-- Création d'une base de données
 
 
 
@@ -53,6 +45,6 @@ Vincent souhaite visualiser un voyage. Il sélectionne le bouton “Liste de voy
 
 
 
-### Importer/Exporter un voyage
+### Exporter un voyage
 Pour importer ou exporter un voyage à partir ou vers son smartphone. L’application propose deux boutons sur son écran d’accueil qui permettent d’enregistrer les voyages en dehors de l’application ou d’importer un voyage pour le visualiser sur l’application.
 
