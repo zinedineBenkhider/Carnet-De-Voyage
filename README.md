@@ -3,29 +3,30 @@
 ### Auteurs :
 - #### Abdoulaye-Cherif Toure
 - #### Mohamed Yahiatene
-- #### Zinedine Benkhider 
+- #### Zinedine Benkhider
 
 
 
 ### Objectifs du projet
 
-- créer une application fonctionnant sur tablettes Android et permettant de prendre des notes (sous formes de
-photos, d’écrits) L’application permet aussi de visualiser les voyages sur une carte, de
+- Créer une application fonctionnant sur tablettes Android et permettant de prendre des notes (sous formes de
+photos, d’écrits, d’enregistrements …). L’application permet aussi de visualiser les voyages sur une carte, de
 cliquer sur les notes de la carte afin de voir le détails.
 
 
 ### Fonctionnalités
 
-- Créer/modifier/voir des voyages
-- Prendre des notes datées et géolocalisées
-- note == photo, note écrite.
-- Pouvoir associer un tag à plusieurs note
-- Montrer les notes sur une carte (googleMap)
-- Supprimer une note/un voyage
-- Visualiser les notes par dates, lieux, tags, texte ...
-- Visualiser les voyages par dates, titre.
-- Export des voyages
-- Fonctionnement offline (tout en local sur la tablette)
+- Créer/modifier/voir/supprimer des voyages
+- Prendre des notes datées et géolocalisées (note == photo, note écrite, …)
+- Supprimer une note (Une seule note la fois)
+- Montrer les notes sur une carte (GoogleMaps)
+- Pouvoir associer un ou plusieurs tags à une note
+- Visualiser les notes par dates, lieux, tags …
+- Visualiser les détails d’un voyage (vue paysage Master Details)
+- Visualisation en portrait ET paysage
+- Exporter des voyages (stocké localement sur la tablette sous forme json)
+- Application stand-alone/offline (L'application fonctionne offline. Les notes sont stockées localement sur la tablette)
+
 
 
 
@@ -45,6 +46,5 @@ Vincent souhaite visualiser un voyage. Il sélectionne le bouton “Liste de voy
 
 
 
-### Exporter un voyage
+### Importer/Exporter un voyage
 Pour importer ou exporter un voyage à partir ou vers son smartphone. L’application propose deux boutons sur son écran d’accueil qui permettent d’enregistrer les voyages en dehors de l’application ou d’importer un voyage pour le visualiser sur l’application.
-
